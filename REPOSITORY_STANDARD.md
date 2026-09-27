@@ -1,12 +1,18 @@
 # Repo-Standard für KI-gestützte Entwicklung
 
-Version: 1.3 · Stand: 27. September 2026
+Version: 1.4 · Stand: 27. September 2026
 
-Dieser Standard beschreibt, welche Informationen und Arbeitsregeln ein Repository für zuverlässige KI-gestützte Entwicklung benötigt. Er unterscheidet erforderliche Informationen von ihrer Ablage: `README.md` und `AGENTS.md` bilden den Einstieg; weitere Dateien entstehen bei konkretem Bedarf.
+Dieser Standard beschreibt, welche Informationen und Arbeitsregeln ein Repository für zuverlässige KI-gestützte Entwicklung benötigt. Er unterscheidet erforderliche Informationen von ihrer Ablage: `README.md` und `AGENTS.md` bilden den Einstieg; längerfristige Projekte führen zusätzlich `REQUIREMENTS.md` und `ROADMAP.md` gemäß Abschnitt 3. Weitere Dateien entstehen bei konkretem Bedarf.
 
 Dokumentation und KI-Arbeitsregeln sind deutsch. Codebezeichner sowie Datei- und Ordnernamen sind englisch. Die Codestruktur folgt Sprache, Framework und Projekt.
 
-Änderungen gegenüber Version 1.2:
+Änderungen gegenüber Version 1.3:
+
+- Eigenständige, längerfristige Projekte führen `REQUIREMENTS.md` und `ROADMAP.md` im Repository-Hauptverzeichnis; kleine Experimente dürfen klar benannte README-Abschnitte verwenden.
+- Zielbild, projektweite Umsetzungsreihenfolge, Aufgabenstatus und technische Detailplanung werden ausdrücklich getrennt.
+- Vorlagen, Lesewege und Einrichtungsauftrag übernehmen die Regel einschließlich verlustfreier Übernahme bestehender Dokumentation.
+
+Bereits in Version 1.3 eingeführte Regeln:
 
 - Aufgaben, eigenständige Pläne und Spezifikationen erhalten eine klare Bereichszuordnung; Labels und `Scope:` ergänzen die Suche, ersetzen sie aber nicht.
 
@@ -36,8 +42,8 @@ Eine Markdown-Datei erzwingt das Lesen durch ein Agentenwerkzeug nicht technisch
 
 | Thema | Regel |
 | --- | --- |
-| Einstieg und Aufbau | `README.md` und `AGENTS.md` als Einstieg. Erforderliche Informationen können Abschnitte bestehender Dateien sein; weitere Dateien nur bei Bedarf. |
-| Planung | Eigene technische Pläne für komplexere oder risikoreiche Änderungen. Bei kleinen Bugfixes genügen Ursache, Änderung und Prüfung im PR. |
+| Einstieg und Aufbau | `README.md` und `AGENTS.md` als Einstieg. Längerfristige Projekte führen `REQUIREMENTS.md` und `ROADMAP.md` im Hauptverzeichnis; Ausnahme für kleine Projekte gemäß Abschnitt 3. Weitere Dateien nur bei Bedarf. |
+| Planung | Projektweite Phasen, Reihenfolge und Abhängigkeiten in `ROADMAP.md`; Aufgabenstatus am Aufgabenort. Eigene technische Pläne für komplexere oder risikoreiche Änderungen. Bei kleinen Bugfixes genügen Ursache, Änderung und Prüfung im PR. |
 | Anforderungen | Vor neuen oder wesentlich geänderten Funktionen überprüfbare Abnahmekriterien festhalten. Eindeutige vorhandene Kriterien wiederverwenden. |
 | Kontext | Geltende Agentenanweisungen lesen; Bereichszuordnung, Suche und Abhängigkeiten für den Relevanzabgleich nutzen; nur passende Dokumentation vollständig laden. |
 | Aufgabenort | Ein maßgeblicher Ort für Gesamtstatus, Priorität und Verbesserungsvorschläge. Keine parallel gepflegten Backlogs. |
@@ -56,7 +62,7 @@ Eine Markdown-Datei erzwingt das Lesen durch ein Agentenwerkzeug nicht technisch
 
 Jede Information erhält einen maßgeblichen Pflegeort. Andere Stellen verweisen darauf. Befehle, Abnahmekriterien, Aufgabenstatus und umfangreiche Beschreibungen werden nicht mehrfach unabhängig gepflegt.
 
-| Inhalt | Bei kleinen Projekten | Eigene Ablage bei Bedarf |
+| Inhalt | Bei kleinen Experimenten / Hilfsskripten | Längerfristige Projekte / eigene Ablage |
 | --- | --- | --- |
 | Zweck, wichtigste Funktionen, Voraussetzungen, Einrichtung und Start | `README.md` | Weiterführende Anleitungen. |
 | Architektur, Komponenten, Datenflüsse und Codeübersicht | Abschnitt in `README.md` | Zum Beispiel `docs/architecture.md`. |
@@ -64,13 +70,28 @@ Jede Information erhält einen maßgeblichen Pflegeort. Andere Stellen verweisen
 | Konfiguration und Startvalidierung | Abschnitt in `README.md`, bei Bedarf `.env.example` | Zum Beispiel `docs/configuration.md`. |
 | Agentenanweisungen und Lesewege | `AGENTS.md` | Zusätzliche bereichsspezifische Anweisungen bei tatsächlichen Unterschieden. |
 | Gesamtstatus, Priorität und Verbesserungsvorschläge | Festgelegter Aufgabenort | Issues oder ein Markdown-Backlog, beispielsweise `docs/backlog.md` beziehungsweise eine bereits vorhandene `docs/improvements.md`. |
-| Anforderungen und Abnahmekriterien | Maßgebliche Aufgabe oder klar benannter Dokumentationsabschnitt | Zum Beispiel `docs/specs/<feature>.md`. |
+| Zielbild, Anforderungen und Abnahmekriterien | Klar benannter README-Abschnitt | `REQUIREMENTS.md` im Hauptverzeichnis; ausführliche Kriterien bei Bedarf eindeutig in verlinkten Spezifikationen oder Aufgaben. |
+| Projektweite Phasen, Reihenfolge und Abhängigkeiten | Klar benannter README-Abschnitt | `ROADMAP.md` im Hauptverzeichnis; Verweise auf Anforderungen, Aufgaben und technische Detailpläne. |
 | Technischer Ansatz und mehrstufige Umsetzung | Bei kleinen Bugfixes die PR-Beschreibung | Zum Beispiel `docs/plans/<task>.md` für komplexe oder risikoreiche Aufgaben. |
 | Wichtige Fehlererkenntnisse | Passender bestehender Dokumentationsabschnitt | Zum Beispiel `docs/lessons-learned.md`. |
 | Grundlegende technische Entscheidungen | Passender bestehender Dokumentationsabschnitt | Zum Beispiel `docs/decisions/<number>-<topic>.md`. |
 | Betrieb und Deployment | Passender Abschnitt, sofern relevant | Zum Beispiel `docs/operations.md` und dokumentiertes Betriebsprofil. |
 | Übergabe offener Arbeit | Vorhandener Plan, Issue oder PR | `docs/handoffs/<task>.md` nur bei sonst fehlender Fortsetzbarkeit. |
 | Historische, ersetzte oder geschlossene Informationen | Am bisherigen Ort, solange übersichtlich | Zum Beispiel `docs/archive/`. |
+
+### Zielbild und Roadmap
+
+Eigenständige, längerfristig gepflegte Projekte führen **`REQUIREMENTS.md` und `ROADMAP.md` im Repository-Hauptverzeichnis**. Das gilt insbesondere bei mehreren geplanten Entwicklungsphasen oder fortlaufender Funktionserweiterung, unabhängig von der aktuellen Codegröße. Beide Dateien sind aus `README.md` und `AGENTS.md` verlinkt.
+
+- `REQUIREMENTS.md` beschreibt das beschlossene Zielbild, Anforderungen, Grenzen und überprüfbare Abnahmekriterien. Anforderungen erhalten stabile Kennungen. Vorschläge und offene Entscheidungen sind ausdrücklich von beschlossenen Anforderungen getrennt. Ausführliche Kriterien dürfen einen verlinkten maßgeblichen Ort haben; keine doppelte Kriterienliste.
+- `ROADMAP.md` beschreibt größere Umsetzungsschritte beziehungsweise Phasen, deren Ergebnis, Reihenfolge und Abhängigkeiten. Sie verweist auf Anforderungskennungen und vorhandene Aufgaben sowie bei Bedarf technische Pläne. Sie führt keine zweite Liste von Aufgabenstatus, Prioritäten oder Prozentfortschritten. Termine werden nur übernommen, wenn vereinbart; geplante Phasen sind keine Implementierungsnachweise.
+- Der Aufgabenort bleibt maßgeblich für konkreten Bearbeitungsstatus und Priorität. Technische Detailpläne erklären die Umsetzung einzelner komplexer Aufgaben und deren Fortsetzung; sie ersetzen nicht die projektweite Roadmap.
+
+Kleine Experimente, reine Dateisammlungen oder einzelne Hilfsskripte ohne mehrphasige Weiterentwicklung dürfen stattdessen klar benannte Abschnitte „Anforderungen“ und „Roadmap“ in der README führen. `AGENTS.md` nennt die gewählte Ausnahme und verlinkt diese Abschnitte. Keine leeren Pflichtdokumente anlegen; bei längerfristiger Weiterentwicklung in die beiden Dateien überführen.
+
+Bei bestehenden Projekten werden passende Inhalte verlustfrei übernommen und alle betroffenen Verweise angepasst. Umfangreiche bestehende Spezifikationen und Detailpläne können als verlinkte maßgebliche Detailquellen bestehen bleiben. Keine konkurrierende Kopie des Zielbilds oder der Roadmap erzeugen; bei ungeklärter Herkunft Inhalte erhalten und die offene Zuordnung benennen.
+
+Bei Änderungen am Zielbild werden betroffene Anforderungen, Roadmap und Aufgabenbezüge im selben Änderungsvorgang abgeglichen. Bei Änderungen der Reihenfolge oder Abhängigkeiten wird die Roadmap angepasst; reine Aufgabenstatuswechsel bleiben am Aufgabenort. Grundlegende Richtungsänderungen mit Begründung nachvollziehbar halten, ohne neben Git eine zweite Änderungshistorie zu verlangen.
 
 Architektur- und Testinformationen bleiben erforderlich, soweit sie zum Projekt gehören. Dafür besteht keine Pflicht zu eigenen Dateien. Weitere Inhalte werden ausgelagert, wenn sie umfangreich sind, unabhängig gepflegt werden müssen oder regelmäßig gezielt gebraucht werden. Es gibt keine starre Dateigrenze und keine leeren Vorratsdateien.
 
@@ -106,9 +127,9 @@ Bei jeder neuen Aufgabe oder Sitzung im Repo:
 
 | Aufgabenart | Zusätzlich benötigte Informationen |
 | --- | --- |
-| Erste Orientierung | Projektzweck, Setup, Architekturüberblick und Arbeitsbefehle. |
+| Erste Orientierung | Projektzweck, Zielbild, Roadmap, Setup, Architekturüberblick und Arbeitsbefehle. |
 | Bugfix | Betroffenes Soll-Verhalten, einschlägige Fehlererkenntnisse und erforderliche Testanweisungen. |
-| Neue oder wesentlich geänderte Funktion | Abnahmekriterien, betroffene Architektur, Prüfungen und gegebenenfalls technischer Plan. |
+| Neue oder wesentlich geänderte Funktion | Betroffene Anforderungen und Roadmap-Phase, Abnahmekriterien, Architektur, Prüfungen und gegebenenfalls technischer Plan. |
 | Architektur-, Schnittstellen- oder Datenänderung | Betroffene Verträge, Entscheidungen, technische Pläne und entsprechende Prüfungen. |
 | Konfiguration oder Betrieb | Konfigurationsschnittstellen, relevantes Betriebsprofil und geltende Betriebsbefugnisse. |
 | Fortsetzung | Vorhandener technischer Arbeitsstand, tatsächlicher Branch/Commit, offene Änderungen und einschlägige Prüfergebnisse. |
@@ -353,7 +374,7 @@ Die Muster sind auszufüllende Strukturhilfen. Benötigte Abschnitte können in 
 
 # Arbeitsregeln für [Projektname]
 
-Basis: REPOSITORY_STANDARD.md 1.3 · Übernommen: [Datum]
+Basis: REPOSITORY_STANDARD.md 1.4 · Übernommen: [Datum]
 
 ## Befehle
 
@@ -364,6 +385,8 @@ Basis: REPOSITORY_STANDARD.md 1.3 · Übernommen: [Datum]
 - Bereichstests: [konkreter Auswahlweg und maßgebliche Anweisungen].
 
 ## Aufgaben und Kontext
+
+- Zielbild und Roadmap: [Links auf REQUIREMENTS.md und ROADMAP.md im Hauptverzeichnis; bei kleiner Ausnahme Begründung und Links auf beide README-Abschnitte].
 
 - Aufgabenort für Gesamtstatus und Vorschläge: [Issue-Bereich oder genau ein Markdown-Backlog].
 
@@ -383,7 +406,7 @@ Basis: REPOSITORY_STANDARD.md 1.3 · Übernommen: [Datum]
 
 - Funktionale Änderungen müssen Kernprüfungen und erforderliche Bereichstests bestehen. Prüfung, Umgebung, Codezustand, Ergebnis und Beleg zuordnen; fehlende erforderliche Nachweise samt Grund nennen.
 
-- Betroffene Dokumentation im selben PR aktualisieren; relevante Fehlererkenntnisse festhalten.
+- Betroffene Dokumentation im selben PR aktualisieren; bei Ziel- oder Planänderungen Anforderungen, Roadmap und Aufgabenbezüge abgleichen. Aufgabenstatus nur am Aufgabenort pflegen; relevante Fehlererkenntnisse festhalten.
 
 - Fremde Arbeit und weiterhin relevante Kommentare erhalten; gesamten Diff vor Übergabe auf unbeabsichtigte Änderungen prüfen.
 
@@ -415,6 +438,8 @@ Bereich: [Projektzuordnung/Scope; bei eindeutiger bestehender Abschnittszuordnun
 
 Realisierungsstand: [geplant / teilweise umgesetzt / umgesetzt; nicht der Gesamtaufgabenstatus]
 
+Anforderungsbezug: [stabile Kennung und maßgeblicher Verweis]
+
 Maßgebliche Aufgabe: [Verweis]
 
 ## Ziel und Verhalten
@@ -444,6 +469,8 @@ Maßgebliche Aufgabe: [Verweis]
 Bereich: [Projektzuordnung/Scope; bei eindeutiger bestehender Abschnittszuordnung nicht doppeln]
 
 Maßgebliche Aufgabe und Gesamtstatus: [Verweis auf Aufgabenort]
+
+Anforderungen / Roadmap-Bezug: [Kennungen und relevante Phase verlinken]
 
 Abnahmekriterien: [maßgeblicher Verweis]
 
@@ -603,11 +630,61 @@ Tests: [isolierte Verzeichnisse und Testkonfiguration]
 
 ```
 
+### 14.10 Projektanforderungen (REQUIREMENTS.md)
+
+```markdown
+# Anforderungen
+
+## Zielbild und Grenzen
+
+[Beschlossener Zweck, Zielgruppe, gewünschtes Ergebnis und Nicht-Ziele. Keine geplante Funktion als bereits implementiert darstellen.]
+
+## Beschlossene Anforderungen
+
+### REQ-01 – [Bezeichnung]
+
+Bereich: [Scope]
+
+[Erwartetes Verhalten und relevante Fehlerfälle]
+
+Abnahmekriterien: [überprüfbare Kriterien ODER Verweis auf ihren maßgeblichen Ort]
+
+## Offene Entscheidungen
+
+[Nur tatsächliche ungeklärte Punkte; Vorschläge ausdrücklich kennzeichnen. Abschnitt bei fehlendem Bedarf weglassen.]
+
+## Umsetzung und Nachweise
+
+[Roadmap und maßgeblichen Aufgabenort verlinken; keine kopierte Aufgabenstatusliste. Implementierungs- und Prüfnachweise gezielt verlinken.]
+```
+
+### 14.11 Projektweite Roadmap (ROADMAP.md)
+
+```markdown
+# Roadmap
+
+Planungsgrundlage: [Link auf REQUIREMENTS.md oder begründeten maßgeblichen Anforderungsabschnitt]
+
+Aufgaben und aktueller Bearbeitungsstatus: [maßgeblicher Aufgabenort]
+
+## Phasen und Abhängigkeiten
+
+| Phase | Angestrebtes Ergebnis | Anforderungen | Voraussetzung / Abhängigkeit | Aufgaben / Detailplan |
+| --- | --- | --- | --- | --- |
+| [Phase] | [prüfbares Etappenziel] | [Anforderungskennungen verlinken] | [benötigte Ergebnisse; Unklarheiten benennen] | [vorhandene Verweise; noch fehlende Aufgabe ausdrücklich benennen] |
+
+[Reihenfolge begründen; voneinander unabhängige Phasen kenntlich machen. Keine erfundenen Termine, Aufgaben oder Fortschrittsangaben.]
+
+## Pflege
+
+[Bei geänderten Zielen, Reihenfolgen oder Abhängigkeiten mit Anforderungen und Aufgaben abgleichen. Konkreten Aufgabenstatus und Priorität ausschließlich am Aufgabenort führen.]
+```
+
 ## 15. Einführung und Aktualisierung eines konkreten Repositories
 
 1. Vorhandenen Projektstand, Anweisungen und Arbeitsabläufe prüfen. Zweck, zentrale Funktionen und Technologien aus tatsächlichen Quellen erfassen.
 
-2. Die benötigten Informationen jeweils einem maßgeblichen Pflegeort zuordnen. Vorhandene geeignete Abschnitte übernehmen; `README.md` und `AGENTS.md` als Einstieg sicherstellen. Weitere Dateien nur bei konkretem Bedarf anlegen.
+2. Die benötigten Informationen jeweils einem maßgeblichen Pflegeort zuordnen. Vorhandene geeignete Abschnitte übernehmen; `README.md` und `AGENTS.md` als Einstieg sicherstellen. `REQUIREMENTS.md` und `ROADMAP.md` gemäß Abschnitt 3 anlegen beziehungsweise verlustfrei übernehmen und aus beiden Einstiegen verlinken; eine kleine Ausnahme dort begründen. Weitere Dateien nur bei konkretem Bedarf anlegen.
 
 3. Aufgabenort, Bereichszuordnung, ergänzenden Suchweg und gegebenenfalls relevantes Betriebsprofil festlegen. Eindeutige bestehende Entscheidungen weiterverwenden; wesentliche offene Entscheidungen mit Optionen, Vor-/Nachteilen und Empfehlung klären.
 
@@ -635,7 +712,7 @@ Er übernimmt die einmalige Zuordnung aller benötigten Informationen zu ihren P
 
 ```text
 
-Erstelle beziehungsweise aktualisiere die projektspezifische Dokumentation des Zielrepositories gemäß der bereitgestellten REPOSITORY_STANDARD.md Version 1.3.
+Erstelle beziehungsweise aktualisiere die projektspezifische Dokumentation des Zielrepositories gemäß der bereitgestellten REPOSITORY_STANDARD.md Version 1.4.
 
 Übernimm selbst die einmalige Zuordnung aller benötigten Informationen zu ihren maßgeblichen Pflegeorten. Verwende vorhandene Struktur und bereits getroffene Entscheidungen. Entscheide eindeutig ableitbare und unkritische Zuordnungen selbst; kläre nur wesentliche offene Entscheidungen mit mir. Bei späteren Aktualisierungen überprüfe vorhandene Zuordnungen und ändere nur die tatsächlich betroffenen Teile.
 
@@ -647,7 +724,7 @@ Unterscheide gewünschtes Verhalten, implementierten Zustand und tatsächlich ge
 
 2. Pflegeorte bestimmen
 
-Stelle README.md und AGENTS.md als Einstieg sicher. Ordne benötigte Architektur-, Test-, Konfigurations-, Anforderungs-, Fehler- und Entscheidungsinformationen jeweils einem maßgeblichen Pflegeort zu. Verwende passende vorhandene Abschnitte weiter. Weitere Dateien entstehen nur bei konkretem Bedarf gemäß Abschnitt 3, ohne leere Vorratsdateien oder starre Dateigrenze.
+Stelle README.md und AGENTS.md als Einstieg sicher. Für längerfristige Projekte erstelle REQUIREMENTS.md und ROADMAP.md im Hauptverzeichnis gemäß Abschnitt 3 und verlinke beide aus README und AGENTS. Übernimm bestehende Inhalte verlustfrei, erhalte maßgebliche Detailquellen über Verweise und aktualisiere betroffene Links. Für kleine Experimente, Dateisammlungen oder Hilfsskripte ohne mehrphasige Weiterentwicklung genügen die benannten README-Abschnitte; dokumentiere die Ausnahme in AGENTS. Trenne beschlossenes Zielbild, Phasen und Abhängigkeiten, konkreten Aufgabenstatus und technische Detailplanung. Ordne benötigte Architektur-, Test-, Konfigurations-, Anforderungs-, Fehler- und Entscheidungsinformationen jeweils einem maßgeblichen Pflegeort zu. Verwende passende vorhandene Abschnitte weiter. Weitere Dateien entstehen nur bei konkretem Bedarf gemäß Abschnitt 3, ohne leere Vorratsdateien oder starre Dateigrenze.
 
 Bestimme einen maßgeblichen Aufgabenort für Gesamtstatus, Priorität und Verbesserungsvorschläge. Übernimm einen geeigneten bestehenden Ort. Wähle anhand des tatsächlichen Workflows Issues oder einen Markdown-Backlog; kläre eine wesentliche offene Wahl mit mir. PRs dokumentieren Änderungen und Prüfergebnisse; technische Pläne behalten Umsetzungsschritte, Prüfstand, Blocker und nächsten Schritt, aber keinen zweiten Gesamtstatus. Auch Abnahmekriterien haben genau einen maßgeblichen Ort.
 
@@ -663,7 +740,7 @@ Stelle je Runde höchstens drei konkrete Fragen. Benenne die fehlende Informatio
 
 Erstelle oder ergänze die benötigten Informationen an den gewählten Orten. Verwende konkrete Pfade, Befehle und Voraussetzungen und kennzeichne, ob Befehle nur ermittelt oder tatsächlich ausgeführt wurden. Übernimm bestätigte Erkenntnisse und Entscheidungen ohne Duplikate. Beschreibe Konfigurationsschnittstellen, Pflichtwerte, tatsächliche Startvalidierung und gegebenenfalls die Übergabe zwischen Host, Container und Anwendung. Verwende nur ungefährliche Beispiele und keine echten Secrets.
 
-Erstelle eine kompakte AGENTS.md anhand von Vorlage 14.1: Standardversion 1.3, Übernahmedatum, Befehle beziehungsweise genaue Verweise, Aufgabenort und Suchweg, unmittelbar geltende Kernregeln, Projektgrenzen und konkrete Lesewege. Eine Versionsnummer ersetzt keine Arbeitsanweisung. Erhalte insbesondere die Pflichten zu erforderlichen Prüfungen, aktueller betroffener Dokumentation, belegtem Schließen von Vorschlägen und brauchbarer Übergabe.
+Erstelle eine kompakte AGENTS.md anhand von Vorlage 14.1: Standardversion 1.4, Übernahmedatum, Befehle beziehungsweise genaue Verweise, Aufgabenort und Suchweg, unmittelbar geltende Kernregeln, Projektgrenzen und konkrete Lesewege. Eine Versionsnummer ersetzt keine Arbeitsanweisung. Erhalte insbesondere die Pflichten zu erforderlichen Prüfungen, aktueller betroffener Dokumentation, belegtem Schließen von Vorschlägen und brauchbarer Übergabe.
 
 Verlange bei jeder neuen Aufgabe oder Sitzung den gezielten Relevanzabgleich nach Abschnitt 4. Übernimm passende Bereichsnamen und vorhandene Labels, Scope-Felder oder eindeutige Abschnittszuordnungen für Aufgaben, eigenständige Pläne und Spezifikationen. Dokumentiere den ergänzenden Suchweg; berücksichtige Schnittstellen, Abhängigkeiten und übergreifende Regeln auch außerhalb passender Labels. Nur passende Einträge und Dokumente vollständig lesen; keine vollständige Backlog-Lektüre oder allgemeine Aufräumrunde pro Bugfix.
 
@@ -677,7 +754,7 @@ Stelle bei fehlenden wesentlichen Informationen nur den betroffenen Teil zurück
 
 Dieser Auftrag richtet die Dokumentation ein. Prüfe und beschreibe vorhandene CI und technische Einrichtungen; erfasse fehlende Umsetzung als konkrete Lücke beziehungsweise Folgeaufgabe. Technische Einrichtung, Codeumbauten, Host-Änderungen, Merge und Deployment folgen entsprechenden Aufträgen oder bereits bestehenden Befugnissen. Erweitere den Auftrag nicht stillschweigend und frage bereits erteilte Befugnisse nicht erneut ab. Ändere den allgemeinen Standard nicht nebenbei für ein Projekt.
 
-Prüfe alle betroffenen Regeln, Vorlagen und Lesewege auf Widersprüche, doppelte Pflegeorte, konkurrierende Statusangaben, alte Pflichtdateien, falsche Verweise und unbemerkte Platzhalter. Führe passende vorhandene Dokumentationsprüfungen aus. Ordne relevante Prüfungen ihrer Umgebung, dem geprüften Codezustand, dem Ergebnis und einem Beleg zu; gemeinsame Angaben dürfen gebündelt werden. Unterscheide lokale Erfolge und CI-Nachweise. Beschreibe erforderliche Checks und die tatsächlich eingerichteten Merge-Regeln; fehlende CI oder überholte Läufe gelten nicht als Erfolgsnachweis. Nenne erforderliche, aber nicht ausgeführte Prüfungen samt Grund; keine Aufzählung aller denkbaren Tests und keine automatische vollständige Anwendungstestsuite für reine Dokumentation.
+Prüfe Anforderungen und Roadmap auf klare Zuordnung, nachvollziehbare Abhängigkeiten und Verweise zum Aufgabenort ohne doppelte Statusführung. Prüfe alle betroffenen Regeln, Vorlagen und Lesewege auf Widersprüche, doppelte Pflegeorte, konkurrierende Statusangaben, alte Pflichtdateien, falsche Verweise und unbemerkte Platzhalter. Führe passende vorhandene Dokumentationsprüfungen aus. Ordne relevante Prüfungen ihrer Umgebung, dem geprüften Codezustand, dem Ergebnis und einem Beleg zu; gemeinsame Angaben dürfen gebündelt werden. Unterscheide lokale Erfolge und CI-Nachweise. Beschreibe erforderliche Checks und die tatsächlich eingerichteten Merge-Regeln; fehlende CI oder überholte Läufe gelten nicht als Erfolgsnachweis. Nenne erforderliche, aber nicht ausgeführte Prüfungen samt Grund; keine Aufzählung aller denkbaren Tests und keine automatische vollständige Anwendungstestsuite für reine Dokumentation.
 
 Liste neue und geänderte Dateien mit Zweck auf. Erkläre knapp gewählte Pflegeorte, Aufgabenverwaltung, gegebenenfalls Betriebsprofil sowie offene Entscheidungen, technische Lücken und ausstehende Übertragungen. Halte bei Unterbrechung Fortschritt und nächsten Schritt fest. Dokumentation und Arbeitsregeln sind deutsch, Datei- und Ordnernamen sowie Codebezeichner englisch.
 

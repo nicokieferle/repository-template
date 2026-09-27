@@ -4,6 +4,8 @@ Bereich: [Projektzuordnung/Scope; bei eindeutiger bestehender Abschnittszuordnun
 
 Maßgebliche Aufgabe und Gesamtstatus: [Verweis auf Aufgabenort]
 
+Anforderungen / Roadmap-Bezug: [Kennungen und relevante Phase verlinken]
+
 Abnahmekriterien: [maßgeblicher Verweis]
 
 Technischer Stand: [Datum, Branch, vorhandener Commit und relevante uncommittete Änderungen]

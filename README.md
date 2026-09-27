@@ -1,6 +1,6 @@
 # Repository Template
 
-Schlanker Ausgangspunkt für neue Projekte und zentrale Pflege des **Repo-Standards 1.3** (27. September 2026).
+Schlanker Ausgangspunkt für neue Projekte und zentrale Pflege des **Repo-Standards 1.4** (27. September 2026).
 
 Dieses Repository enthält Dokumentation und Vorlagen, keinen Anwendungscode. Es legt keine Sprache, Datenbank, Containertechnik oder CI-Plattform für Zielprojekte fest.
 
@@ -29,11 +29,13 @@ Den [Standard](REPOSITORY_STANDARD.md) und [Einrichtungsauftrag](SETUP.md) als R
 | [scripts/check_template.py](scripts/check_template.py) | Abgleich der extrahierten Vorlagen mit dem Standard und Prüfung der Paketstruktur, lokal und in CI. |
 | [.github/workflows/template-check.yml](.github/workflows/template-check.yml) | GitHub-Actions-Workflow für dieselbe Template-Prüfung. |
 
-Im Zielprojekt sind README.md und AGENTS.md die Einstiege. Weitere Dokumente entstehen nur bei konkretem Bedarf. Die Muster sind keine Pflicht-Dateiliste.
+Im Zielprojekt sind README.md und AGENTS.md die Einstiege. Längerfristige Projekte führen außerdem REQUIREMENTS.md und ROADMAP.md im Hauptverzeichnis; kleine Experimente dürfen die begründete README-Ausnahme aus Standardabschnitt 3 nutzen. Weitere Dokumente entstehen nur bei Bedarf.
+
+Zielbild dieses Templates: [REQUIREMENTS.md](REQUIREMENTS.md). Weiterentwicklung: [ROADMAP.md](ROADMAP.md).
 
 ## Architektur und Pflege
 
-Der Standard ist die maßgebliche Regelfassung. Die neun Muster aus Abschnitt 14 liegen zusätzlich als direkt verwendbare Dateien vor; das Prüfsystem erkennt Abweichungen. Die README-Vorlage ist eine ergänzende Strukturhilfe. SETUP.md verweist auf den maßgeblichen Einrichtungs-Prompt in Abschnitt 16 statt ihn erneut zu pflegen.
+Der Standard ist die maßgebliche Regelfassung. Die elf Muster aus Abschnitt 14 liegen zusätzlich als direkt verwendbare Dateien vor; das Prüfsystem erkennt Abweichungen. Die README-Vorlage ist eine ergänzende Strukturhilfe. SETUP.md verweist auf den maßgeblichen Einrichtungs-Prompt in Abschnitt 16 statt ihn erneut zu pflegen.
 
 Die Zielprojekte erhalten eigene, eigenständig verständliche Regeln. Sie benötigen im normalen Betrieb keinen Zugriff auf dieses Template. Eine spätere Standardversion wird bewusst geprüft und übernommen, niemals automatisch als neue Regel aktiviert.
 
@@ -65,4 +67,4 @@ Eine Lizenz ist bewusst nicht vorgegeben. Vor öffentlicher Weitergabe oder exte
 
 ## Herkunft
 
-Grundlage ist die vom Betreiber bereitgestellte Fassung 1.3. Dateiname vereinheitlicht auf `REPOSITORY_STANDARD.md`; maskierte Markdown-Zeichen, fett markierte Überschriften und überzählige Leerzeilen wurden für lesbares Markdown normalisiert. Die Regeln wurden inhaltlich nicht erweitert oder gekürzt. Projektspezifische Auto-Coding-Entscheidungen sind nicht Bestandteil dieses allgemeinen Templates.
+Grundlage ist die vom Betreiber bereitgestellte Fassung 1.3. Dateiname vereinheitlicht auf `REPOSITORY_STANDARD.md`; maskierte Markdown-Zeichen, fett markierte Überschriften und überzählige Leerzeilen wurden für lesbares Markdown normalisiert. Version 1.4 ergänzt die beschlossene Regel für projektweite Anforderungen und Roadmaps; die ursprüngliche Übernahme der Fassung 1.3 war rein redaktionell. Projektspezifische Auto-Coding-Entscheidungen sind nicht Bestandteil dieses allgemeinen Templates.

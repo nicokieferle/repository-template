@@ -1,0 +1,19 @@
+## Konfiguration
+
+Schnittstellen und Ladeweise: [tatsächlich unterstützte Quellen und gegebenenfalls Vorrang]
+
+| Einstellung | Zweck | Pflicht? | Typ/zulässige Werte | Default | Geheim? |
+| --- | --- | --- | --- | --- | --- |
+| [Name] | [Zweck] | [Ja/Nein/Bedingung] | [Definition] | [Wert oder keiner] | [Ja/Nein] |
+
+Startprüfung: [Validierung, Fehlerreaktion und Umgang mit optionalen Integrationen]
+
+Tests: [isolierte Verzeichnisse und Testkonfiguration]
+
+### [Betriebsprofil, nur wenn relevant]
+
+[Starter/Deployment und tatsächliche Übergabe der Konfiguration]
+
+[Zuordnung Host-Verzeichnis → gegebenenfalls Container-Pfad → Anwendungseinstellung]
+
+[Persistente Daten und gegebenenfalls unterstützte Secret-Dateien; keine echten Geheimnisse]

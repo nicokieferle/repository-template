@@ -1,0 +1,13 @@
+## [Fehlermuster]
+
+- Bereich/Geltungsbereich: [Komponente und relevante Bedingungen]
+
+- Symptom: [erkennbares Fehlverhalten]
+
+- Bestätigte Ursache: [Ursache und Nachweis]
+
+- Funktionierender Fix: [Lösung und Bezug zur Änderung]
+
+- Schutz vor Wiederholung: [Test, technische Absicherung oder konkrete Prüfregel]
+
+- Belege und Stand: [Referenzen und Datum; bei Überholung Grund/Ersatz]

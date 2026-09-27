@@ -1,0 +1,9 @@
+# Lokale Konfiguration mit möglichen Geheimnissen; Beispiele dürfen versioniert werden.
+.env
+.env.*
+!.env.example
+!.env.*.example
+# Lokale Betriebsdaten nicht als Projektquellen übernehmen.
+/secrets/
+/runtime/
+# Technologiespezifische Ausschlüsse bei Einrichtung gezielt ergänzen.

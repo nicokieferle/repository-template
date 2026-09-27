@@ -1,0 +1,23 @@
+# [Funktion]
+
+Bereich: [Projektzuordnung/Scope; bei eindeutiger bestehender Abschnittszuordnung nicht doppeln]
+
+Realisierungsstand: [geplant / teilweise umgesetzt / umgesetzt; nicht der Gesamtaufgabenstatus]
+
+Maßgebliche Aufgabe: [Verweis]
+
+## Ziel und Verhalten
+
+[Nutzerbedarf, Eingaben, Ausgaben und wesentliche Abläufe]
+
+## Grenzen und Fehlerfälle
+
+[Relevante Nicht-Ziele, ungültige Eingaben und Fehlerreaktionen]
+
+## Abnahmekriterien
+
+[Kriterien hier pflegen ODER auf ihren maßgeblichen Ort verweisen; keine doppelte Liste]
+
+## Implementierung und Prüfungen
+
+[Tatsächliche Pfade und Tests beziehungsweise ausdrücklich noch nicht umgesetzt/geprüft]

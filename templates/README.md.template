@@ -1,0 +1,31 @@
+# [Project name]
+
+[Zweck, Zielgruppe und wichtigste Funktionen. Geplante Funktionen ausdrücklich kennzeichnen.]
+
+## Einrichtung und Start
+
+[Voraussetzungen, unterstützte Versionen, exakte Befehle und Arbeitsordner. Tatsächlich ausgeführte Schritte von nur ermittelten Befehlen unterscheiden.]
+
+## Nutzung
+
+[Wichtigster Ablauf mit ungefährlichen Beispielen.]
+
+## Architektur
+
+[Komponenten, Zuständigkeiten, Datenflüsse, externe Abhängigkeiten und tatsächliche Codepfade. Bei eigener Architekturdokumentation genau darauf verweisen.]
+
+## Konfiguration
+
+[Maßgebliche Schnittstellen, Pflichtwerte, Defaults, Startvalidierung und gegebenenfalls Verweis auf passende ungefährliche Beispiele. Betriebsprofil nur bei tatsächlicher Relevanz.]
+
+## Prüfungen
+
+[Maßgebliche Testbefehle, Arbeitsordner, Voraussetzungen, erwartete Ergebnisse, Kernprüfungen und Auswahlregeln für Bereichstests. Erforderliche CI-Checks am maßgeblichen aktuellen PR-Stand und tatsächlich eingerichteten Merge-Schutz nennen; Lücken ausdrücklich ausweisen. Bei anderer maßgeblicher Ablage genau darauf verweisen.]
+
+## Mitarbeit und Aufgaben
+
+[Verweis auf AGENTS.md. Genau ein maßgeblicher Aufgabenort für Status, Priorität und Verbesserungsvorschläge; relevante Suchwege dort festlegen. Keine zweite Statusliste hier.]
+
+## Weitere Informationen
+
+[Nur tatsächlich vorhandene relevante Dokumente verlinken. Entscheidungen und Fehlerwissen bei geringem Umfang in passenden bestehenden Abschnitten pflegen.]

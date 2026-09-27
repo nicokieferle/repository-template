@@ -1,0 +1,15 @@
+## Prüfungen
+
+Voraussetzungen: [Umgebung, Abhängigkeiten, isolierte Testdaten und Konfiguration]
+
+| Geprüftes Verhalten | Befehl und Arbeitsordner | Erwartetes Ergebnis | Einsatz / erforderliche Umgebung |
+| --- | --- | --- | --- |
+| [Verhalten] | [konkreter Befehl] | [Ergebnis] | [Kernprüfung / Bereichsauslöser; Umgebung und CI-Check oder konkrete Lücke] |
+
+Pflichtchecks und Merge-Regeln: [erforderliche Checks am maßgeblichen aktuellen PR-Stand; tatsächlich eingerichtete Absicherung oder konkrete Lücke]
+
+Einrichtungslücken: [konkrete fehlende Prüfungen/CI-Checks und gegebenenfalls Aufgabenverweis]
+
+Weitere Einschränkungen: [relevante bekannte Fehler oder notwendige manuelle Prüfungen]
+
+Nachweisort: [PR/Plan/Lauf; Prüfung, Umgebung, Codezustand, Ergebnis und Beleg gemäß Abschnitt 9 eindeutig zuordnen, keine doppelte Ergebnispflege]

@@ -1,0 +1,33 @@
+# [Technische Aufgabe]
+
+Bereich: [Projektzuordnung/Scope; bei eindeutiger bestehender Abschnittszuordnung nicht doppeln]
+
+Maßgebliche Aufgabe und Gesamtstatus: [Verweis auf Aufgabenort]
+
+Abnahmekriterien: [maßgeblicher Verweis]
+
+Technischer Stand: [Datum, Branch, vorhandener Commit und relevante uncommittete Änderungen]
+
+## Ansatz und Abhängigkeiten
+
+[Vorgehen, wesentliche Risiken und relevante Entscheidungen]
+
+## Umsetzungsschritte
+
+- [ ] [Konkreter technischer Schritt mit erkennbarem Ergebnis]
+
+- [ ] [Konkreter technischer Schritt mit erkennbarem Ergebnis]
+
+## Prüfstand und Blocker
+
+[Prüfung, Umgebung, geprüfter Codezustand, Ergebnis und Beleg oder genauer Verweis; erforderliche fehlende Nachweise samt Grund]
+
+[Für die Fortsetzung relevante Blocker oder erfolglose Ansätze]
+
+## Nächster Schritt
+
+[Konkrete nächste Handlung]
+
+## Noch nicht an den Aufgabenort übertragen
+
+[Nur bei Zugriffslücke: Inhalt/Zielort, Zuständigkeit, nächster Abgleich/Schritt und Auswirkung auf die Abnahme. Vor Abschluss übertragen oder verbindlich übergeben; nach Übertragung durch Verweis ersetzen.]

@@ -1,0 +1,9 @@
+## Architektur
+
+[Zweck, Systemgrenzen, Komponenten, Zuständigkeiten und wesentliche Datenflüsse]
+
+| Zentrale Funktion | Maßgebliche Beschreibung | Tatsächlicher Codepfad | Prüfung |
+| --- | --- | --- | --- |
+| [Funktion] | [Abschnitt oder Verweis] | [Pfad] | [Test oder offener Prüfbedarf] |
+
+[Wichtige Schnittstellen, externe Abhängigkeiten und relevante Entscheidungsverweise]

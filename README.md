@@ -33,6 +33,9 @@ Diese Dateien pflegen das Template selbst. Sie sind kein Pflichtbestand für jed
 | [templates/README.md](templates/README.md) | Auswahl und Verwendung der optionalen Strukturhilfen. |
 | [scripts/check_template.py](scripts/check_template.py) | Abgleich der extrahierten Vorlagen mit dem Standard und Prüfung der Paketstruktur, lokal und in CI. |
 | [.github/workflows/template-check.yml](.github/workflows/template-check.yml) | GitHub-Actions-Workflow für dieselbe Template-Prüfung. |
+| [.github/ISSUE_TEMPLATE/bug_report.md](.github/ISSUE_TEMPLATE/bug_report.md) | Fehlerbericht mit Bereich, Reproduktion, IST/SOLL und Minimalbeleg. |
+| [.github/ISSUE_TEMPLATE/feature_request.md](.github/ISSUE_TEMPLATE/feature_request.md) | Verbesserung mit Bereich, Problem/Nutzen, gewünschtem Verhalten und Kriterien oder offenen Fragen. |
+| [.github/pull_request_template.md](.github/pull_request_template.md) | Problem/Ziel, Änderungen, Aufgabenbezug, lokale und CI-Prüfnachweise sowie Einschränkungen. |
 
 ## Aufbau im Zielprojekt
 
@@ -70,6 +73,8 @@ Die Zielprojekte erhalten eigene, eigenständig verständliche Regeln. Sie benö
 
 Aufgabenort für die Pflege dieses Templates: [GitHub Issues in Hengsto/repository-template](https://github.com/Hengsto/repository-template/issues). Suche dort nach betroffenen Pfaden, Standardabschnitten und Begriffen; vorhandene Labels nur ergänzend nutzen. Es wird kein zusätzlicher Backlog angelegt. Die Trennung vermeidet parallele Statuslisten und reduziert Konfliktquellen; gemeinsame Änderungen an Code oder Dokumentation können weiterhin Merge-Konflikte verursachen.
 
+Die GitHub-Vorlagen setzen die bestehenden Inhaltsregeln aus Standardabschnitten 6, 7, 9 und 11 im Arbeitsablauf um. Ein Verbesserungsvorschlag darf zunächst offene Fragen enthalten; vor Umsetzung müssen die erforderlichen Abnahmekriterien geklärt sein. Bei Erstellung über API oder CLI übernehmen Agenten die passenden Vorlageninhalte ausdrücklich. Die Vorlagen schaffen weder einen zweiten Aufgabenort noch eine zusätzliche Freigabestufe. In Zielprojekten werden sie bei der Einrichtung an Aufgabenort und tatsächliche Prüfungen angepasst; geeignete bestehende Vorlagen bleiben erhalten.
+
 ## Prüfungen
 
 Voraussetzung: Python 3.11 oder neuer; keine zusätzlichen Pakete. Aus dem Repository-Wurzelverzeichnis:
@@ -84,7 +89,11 @@ Der Workflow [.github/workflows/template-check.yml](.github/workflows/template-c
 
 Für Änderungen an diesem Template muss der Check am maßgeblichen aktuellen PR-Stand bestehen. Den konkreten Lauf und geprüften Commit als Nachweis verlinken; ein lokaler Erfolg ist kein CI-Nachweis. Läufe sind unter [GitHub Actions](https://github.com/Hengsto/repository-template/actions) sichtbar.
 
-**Eine technische Merge-Sperre durch verpflichtende Statuschecks ist weiterhin eine gesonderte Einrichtungslücke.** Der Workflow allein erzwingt sie nicht. Es gibt keinen Build, Anwendungsstart oder Deploymentvorgang für dieses Dokumentationstemplate.
+**Eine technische Merge-Sperre durch verpflichtende Statuschecks ist weiterhin eine gesonderte Einrichtungslücke.** Bei der Prüfung am 27. September 2026 war `main` ungeschützt. Das Repository ist privat; der Ruleset-Abruf wurde mit HTTP 403 und dem Hinweis auf GitHub Pro oder ein öffentliches Repository abgewiesen. Voraussetzungen, Aufgabe und weiterer Abgleich stehen in [Issue #5](https://github.com/Hengsto/repository-template/issues/5). Sichtbarkeit und Tarif werden nicht durch die Dokumentationseinrichtung geändert.
+
+Nach Freischaltung ist mit Administrationszugriff ein aktiver Schutz für `main` einzurichten und anschließend auszulesen: PR-Pflicht, erforderlicher Check **Template check** für einen aktuellen Stand, keine Umgehung durch direkte Pushes oder Bypass-Regeln sowie gesperrte Force-Pushes und Branch-Löschung. Eine zusätzliche manuelle Review-Freigabe wird damit nicht vorgeschrieben. Der Checkname stammt aus dem Jobnamen; `template-check.yml` ist der Dateiname des Workflows. Einstellungen gelten erst nach belegter Einrichtung, nicht durch diesen Text.
+
+Der Workflow allein erzwingt keine Merge-Sperre. Auch ein erfolgreicher Check belegt nur die geprüften Struktur- und Konsistenzmerkmale, keine vollständige inhaltliche Korrektheit. Es gibt keinen Build, Anwendungsstart oder Deploymentvorgang für dieses Dokumentationstemplate.
 
 In abgeleiteten Projekten ist dieser Check keine Anwendungsprüfung. Wird das Template-Prüfskript bei der Einrichtung entfernt, muss auch der zugehörige unveränderte Template-Workflow gemäß [SETUP.md](SETUP.md) entfernt werden. Bereits angepasste Projekt-Workflows bleiben erhalten; ihr weiterer Umgang ist ausdrücklich zu klären.
 

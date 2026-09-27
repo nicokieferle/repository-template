@@ -26,6 +26,9 @@ def main() -> int:
         "README.md", "AGENTS.md", "SETUP.md", "REPOSITORY_STANDARD.md",
         "REQUIREMENTS.md", "ROADMAP.md",
         "templates/README.md", "templates/README.md.template",
+        ".github/ISSUE_TEMPLATE/bug_report.md",
+        ".github/ISSUE_TEMPLATE/feature_request.md",
+        ".github/pull_request_template.md",
         ".gitignore", ".gitattributes", ".editorconfig",
         *[f"templates/{name}" for name in TEMPLATES],
     ]

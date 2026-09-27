@@ -2,6 +2,10 @@
 
 Voraussetzungen: [Umgebung, Abhängigkeiten, isolierte Testdaten und Konfiguration]
 
+Testgrenzen: [für Integrations-/End-to-End-Prüfungen reale Komponenten, ersetzte externe Systeme und Grenzen der nachgewiesenen Aussage gemäß Abschnitt 9]
+
+Artefaktprüfungen, soweit zutreffend: [Build-Befehl, erzeugtes Artefakt und Zuordnung zum Codezustand; Auswahlregeln und Befehle für erforderliche Start-/Installations-/Funktionstests am Artefakt gemäß Abschnitt 9]
+
 | Geprüftes Verhalten | Befehl und Arbeitsordner | Erwartetes Ergebnis | Einsatz / erforderliche Umgebung |
 | --- | --- | --- | --- |
 | [Verhalten] | [konkreter Befehl] | [Ergebnis] | [Kernprüfung / Bereichsauslöser; Umgebung und CI-Check oder konkrete Lücke] |

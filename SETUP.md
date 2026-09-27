@@ -5,13 +5,13 @@ Dieser Auftrag ist für eine ausdrücklich beauftragte Einrichtung oder Aktualis
 ## Vor dem Start
 
 - Agent im Zielrepository öffnen; bei einem neuen Projekt die Projektidee mitgeben.
-- Standardversion 1.4 bereitstellen. Bei einem bestehenden Projekt genügt eine externe Referenzkopie; keine Dateien pauschal überschreiben.
+- Standardversion 1.5 bereitstellen. Bei einem bestehenden Projekt genügt eine externe Referenzkopie; keine Dateien pauschal überschreiben.
 - Vorhandene Entscheidungen und Befugnisse aus Auftrag und Repository verwenden. Fehlende wesentliche Angaben gezielt klären.
 
 ## Kopierbarer Auftrag für Codex oder Work
 
 ```text
-Richte die projektspezifische Dokumentation dieses Zielrepositories nach der bereitgestellten REPOSITORY_STANDARD.md Version 1.4 ein. Führe dazu den vollständigen Einrichtungs-Prompt aus Abschnitt 16 aus.
+Richte die projektspezifische Dokumentation dieses Zielrepositories nach der bereitgestellten REPOSITORY_STANDARD.md Version 1.5 ein. Führe dazu den vollständigen Einrichtungs-Prompt aus Abschnitt 16 aus.
 
 Lies zuerst die geltenden Agentenanweisungen und prüfe Branch, Index, Diff und unversionierte Dateien. Erhalte vorhandene Arbeit. Bei einem leeren Projekt verwende die mit diesem Auftrag mitgegebene Projektidee; fehlen wesentliche Anforderungen, frage gezielt nach.
 
@@ -27,6 +27,8 @@ Im neu erzeugten Zielprojekt sollen der allgemeine Standard, dieser Einrichtungs
 
 Berücksichtige dabei auch .github/workflows/template-check.yml: Wenn das zugehörige Template-Prüfskript entfällt, entferne im neu erzeugten Zielprojekt auch den eindeutig unveränderten, nicht mehr benötigten Template-Workflow. Erhalte bereits angepasste Projekt-Workflows und kläre deren weiteren Umgang. Prüfe, dass verbleibende Workflows auf vorhandene Skripte verweisen; ein Template-Check ersetzt keine Anwendungs-CI.
 
+Dokumentiere im maßgeblichen Prüfungsabschnitt die Testgrenzen und gegebenenfalls erforderlichen Build- und Artefaktprüfungen nach Standardabschnitt 9. Verwende vorhandene Prüfungen und benenne fehlende Umsetzung als konkrete Einrichtungslücke.
+
 Halte Standardversion und Übernahmedatum in der projektspezifischen AGENTS.md fest. Ein Verweis auf den zentralen Standard ersetzt keine direkt benötigten Arbeitsanweisungen. Dokumentiere den Herkunftsverweis nur mit tatsächlich bekanntem Repository und Stand.
 
 Richte die Lesewege so ein, dass Agenten zuerst AGENTS.md und geltende Bereichsanweisungen lesen und anschließend gezielt die aufgabenrelevanten Quellen laden. Verlange weder ausschließlich die Root-AGENTS noch pauschal den vollständigen Dokumentationsbestand. Die Roadmap verweist für den aktuellen Bearbeitungsstand auf den Aufgabenort; Änderungen und Prüfnachweise bleiben in den zugehörigen PRs nachvollziehbar.
@@ -41,7 +43,7 @@ Richte keine Anwendung, CI, Host-Konfiguration oder Deployment beiläufig ein. E
 - Gesamtstatus und Verbesserungsvorschläge haben genau einen Aufgabenort; Abnahmekriterien genau einen maßgeblichen Ort.
 - Bereichszuordnung und ergänzende Suche sind beschrieben; keine vollständige Backlog-Lektüre für jede Aufgabe.
 - Setup, Architektur, Konfiguration und Prüfung sind soweit relevant beschrieben. Unbekannte oder fehlende technische Umsetzung ist ausdrücklich erkennbar.
-- Pflichtprüfungen, Prüfumgebungen und tatsächliche CI-/Merge-Absicherung werden getrennt und nachvollziehbar benannt.
+- Pflichtprüfungen, Prüfumgebungen, Testgrenzen, gegebenenfalls Build-/Artefaktprüfungen und tatsächliche CI-/Merge-Absicherung werden nachvollziehbar benannt.
 - Keine unbemerkten Platzhalter, kaputten Lesewege oder konkurrierenden Regelkopien. Nicht benötigte Vorlagen werden nicht zu leeren Projektdokumenten; kein docs-Baum oder .env.example ohne passenden Inhalt.
 
 Die Abnahme hier betrifft die Dokumentationseinrichtung. Sie ist kein Nachweis, dass eine geplante Anwendung schon implementiert oder eine CI-Sperre eingerichtet wurde.

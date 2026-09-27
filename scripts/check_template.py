@@ -37,7 +37,7 @@ def main() -> int:
         print("\n".join(errors))
         return 1
     standard = (ROOT / "REPOSITORY_STANDARD.md").read_text(encoding="utf-8")
-    if not re.search(r"^Version: 1\.4\b", standard, re.M):
+    if not re.search(r"^Version: 1\.5\b", standard, re.M):
         errors.append("Unerwartete Standardversion; bewusste Anpassung erforderlich.")
     sections = re.findall(r"^## (\d+)\. ", standard, re.M)
     if sections != [str(number) for number in range(1, 18)]:
@@ -72,7 +72,7 @@ def main() -> int:
         print("Template-Prüfung: FEHLER")
         print("\n".join(errors))
         return 1
-    print("Template-Prüfung: OK (Standard 1.4, elf synchronisierte Muster, lokale Dateiverweise)")
+    print("Template-Prüfung: OK (Standard 1.5, elf synchronisierte Muster, lokale Dateiverweise)")
     return 0
 
 

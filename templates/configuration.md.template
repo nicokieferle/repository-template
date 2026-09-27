@@ -2,6 +2,8 @@
 
 Schnittstellen und Ladeweise: [tatsächlich unterstützte Quellen und gegebenenfalls Vorrang]
 
+Konfigurationsbeispiele: [nur passende ungefährliche Beispiele; .env.example bei tatsächlich passender Ladeweise, keine Pflichtdatei]
+
 | Einstellung | Zweck | Pflicht? | Typ/zulässige Werte | Default | Geheim? |
 | --- | --- | --- | --- | --- | --- |
 | [Name] | [Zweck] | [Ja/Nein/Bedingung] | [Definition] | [Wert oder keiner] | [Ja/Nein] |

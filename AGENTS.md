@@ -11,6 +11,7 @@ Diese Datei gilt für das zentrale Template. In einem daraus erzeugten, noch nic
 - Zielbild: [REQUIREMENTS.md](REQUIREMENTS.md); projektweite Planung: [ROADMAP.md](ROADMAP.md). Bei Ziel- oder Planänderungen beide mit den Aufgabenbezügen abgleichen; Aufgabenstatus bleibt in GitHub Issues.
 
 - Lokale Prüfung, Voraussetzungen und Grenzen: [README.md, Abschnitt Prüfungen](README.md#prüfungen).
+- GitHub-Einträge: [Fehlerbericht](.github/ISSUE_TEMPLATE/bug_report.md), [Verbesserung/Funktion](.github/ISSUE_TEMPLATE/feature_request.md) und [PR-Vorlage](.github/pull_request_template.md) verwenden. Bei Erstellung über API oder CLI die passenden Inhalte ausdrücklich übernehmen; Vorlagen werden dabei nicht verlässlich automatisch angewendet. Bestehende gleichwertige Inhalte erhalten, offene Fragen und ausstehende Nachweise kenntlich machen.
 - Standardänderung: betroffene Abschnitte in [REPOSITORY_STANDARD.md](REPOSITORY_STANDARD.md), zugehörige Muster unter templates/ und SETUP.md lesen. Gesamten Standard nur für Einrichtung, umfassende Aktualisierung oder unklare übergreifende Auswirkungen laden.
 - Vorlagenänderung: [templates/README.md](templates/README.md) und maßgeblichen Standardabschnitt lesen.
 - Neue Aufgabe/Sitzung: Branch, Diff und vorhandene Arbeit prüfen. Aufgabenort und Suchweg stehen in [README.md](README.md#architektur-und-pflege). Betroffene Pfade, Begriffe, Schnittstellen und übergreifende Einschränkungen berücksichtigen.

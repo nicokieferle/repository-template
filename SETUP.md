@@ -27,6 +27,8 @@ Im neu erzeugten Zielprojekt sollen der allgemeine Standard, dieser Einrichtungs
 
 Berücksichtige dabei auch .github/workflows/template-check.yml: Wenn das zugehörige Template-Prüfskript entfällt, entferne im neu erzeugten Zielprojekt auch den eindeutig unveränderten, nicht mehr benötigten Template-Workflow. Erhalte bereits angepasste Projekt-Workflows und kläre deren weiteren Umgang. Prüfe, dass verbleibende Workflows auf vorhandene Skripte verweisen; ein Template-Check ersetzt keine Anwendungs-CI.
 
+Prüfe die GitHub-Vorlagen unter .github/ISSUE_TEMPLATE/ und .github/pull_request_template.md auf Eignung für den tatsächlichen Aufgaben- und PR-Ablauf. Erhalte geeignete bestehende Vorlagen. Verwende Issue-Vorlagen nur passend zum gewählten Aufgabenort; erzeuge dadurch keinen zweiten Backlog. Passe Vorlagen und ihre Lesewege an das Zielprojekt an: Ersetze insbesondere python3 scripts/check_template.py und den Checknamen Template check in der PR-Vorlage durch tatsächlich vorhandene Projektprüfungen oder kennzeichne fehlende Prüfungen als offen. Lokale Ergebnisse und CI-Nachweise bleiben getrennt. Verlinke verwendete Vorlagen aus AGENTS.md und verlange ihre passenden Inhalte auch bei API-/CLI-Erstellung. In einer neuen Ableitung entferne eindeutig unveränderte, nicht benötigte GitHub-Vorlagen im Rahmen der oben beschriebenen Bereinigung; in bestehenden Projekten keine pauschale Entfernung. GitHub-Vorlagen und Agenteneinrichtung erzwingen weder vollständige inhaltliche Korrektheit noch einen technischen Merge-Schutz.
+
 Dokumentiere im maßgeblichen Prüfungsabschnitt die Testgrenzen und gegebenenfalls erforderlichen Build- und Artefaktprüfungen nach Standardabschnitt 9. Verwende vorhandene Prüfungen und benenne fehlende Umsetzung als konkrete Einrichtungslücke.
 
 Halte Standardversion und Übernahmedatum in der projektspezifischen AGENTS.md fest. Ein Verweis auf den zentralen Standard ersetzt keine direkt benötigten Arbeitsanweisungen. Dokumentiere den Herkunftsverweis nur mit tatsächlich bekanntem Repository und Stand.
@@ -44,6 +46,7 @@ Richte keine Anwendung, CI, Host-Konfiguration oder Deployment beiläufig ein. E
 - Bereichszuordnung und ergänzende Suche sind beschrieben; keine vollständige Backlog-Lektüre für jede Aufgabe.
 - Setup, Architektur, Konfiguration und Prüfung sind soweit relevant beschrieben. Unbekannte oder fehlende technische Umsetzung ist ausdrücklich erkennbar.
 - Pflichtprüfungen, Prüfumgebungen, Testgrenzen, gegebenenfalls Build-/Artefaktprüfungen und tatsächliche CI-/Merge-Absicherung werden nachvollziehbar benannt.
+- Verwendete GitHub-Vorlagen passen zum Aufgabenort und zu tatsächlichen Projektprüfungen; AGENTS verlinkt sie auch für API-/CLI-Erstellung. Keine veralteten Template-Befehle oder Checknamen bleiben als Projektprüfung stehen.
 - Keine unbemerkten Platzhalter, kaputten Lesewege oder konkurrierenden Regelkopien. Nicht benötigte Vorlagen werden nicht zu leeren Projektdokumenten; kein docs-Baum oder .env.example ohne passenden Inhalt.
 
 Die Abnahme hier betrifft die Dokumentationseinrichtung. Sie ist kein Nachweis, dass eine geplante Anwendung schon implementiert oder eine CI-Sperre eingerichtet wurde.

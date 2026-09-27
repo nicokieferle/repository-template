@@ -1,6 +1,6 @@
 # Arbeitsregeln für das Repository Template
 
-Basis: REPOSITORY_STANDARD.md 1.4 · Übernommen: 27. September 2026
+Basis: REPOSITORY_STANDARD.md 1.5 · Übernommen: 27. September 2026
 
 ## Zuerst den Repository-Typ bestimmen
 

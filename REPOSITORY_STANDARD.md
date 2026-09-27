@@ -1,12 +1,17 @@
 # Repo-Standard für KI-gestützte Entwicklung
 
-Version: 1.4 · Stand: 27. September 2026
+Version: 1.5 · Stand: 27. September 2026
 
 Dieser Standard beschreibt, welche Informationen und Arbeitsregeln ein Repository für zuverlässige KI-gestützte Entwicklung benötigt. Er unterscheidet erforderliche Informationen von ihrer Ablage: `README.md` und `AGENTS.md` bilden den Einstieg; längerfristige Projekte führen zusätzlich `REQUIREMENTS.md` und `ROADMAP.md` gemäß Abschnitt 3. Weitere Dateien entstehen bei konkretem Bedarf.
 
 Dokumentation und KI-Arbeitsregeln sind deutsch. Codebezeichner sowie Datei- und Ordnernamen sind englisch. Die Codestruktur folgt Sprache, Framework und Projekt.
 
-Änderungen gegenüber Version 1.3:
+Änderungen gegenüber Version 1.4:
+
+- Integrations- und End-to-End-Prüfungen benennen reale Komponenten und Mock-Grenzen.
+- Änderungen an auslieferbaren Artefakten benötigen einen Build-Nachweis und die nach Projektrisiko erforderlichen Prüfungen des erzeugten Ergebnisses.
+
+Bereits in Version 1.4 eingeführte Regeln:
 
 - Eigenständige, längerfristige Projekte führen `REQUIREMENTS.md` und `ROADMAP.md` im Repository-Hauptverzeichnis; kleine Experimente dürfen klar benannte README-Abschnitte verwenden.
 - Zielbild, projektweite Umsetzungsreihenfolge, Aufgabenstatus und technische Detailplanung werden ausdrücklich getrennt.
@@ -255,6 +260,10 @@ Jedes Projekt mit funktionalem Code definiert eine kleine, schnelle Menge von Ke
 
 Jede funktionale Änderung muss die Kernprüfungen und die erforderlichen Tests der betroffenen Bereiche bestehen. Weitere Spezialtests werden nach den Auswirkungen der Änderung ausgewählt. Bei Bedarf werden passende Regressionstests ergänzt; Prüfungen sollen beobachtbares Verhalten absichern und nicht bloß die Implementierung nachzeichnen.
 
+Für Integrations- und End-to-End-Prüfungen legt der Prüfungsabschnitt fest, welche Komponenten real zusammenarbeiten und welche externen Systeme durch Mocks oder andere Testersatzkomponenten ersetzt werden. Ersatzkomponenten dürfen die zu prüfende Logik oder das nachzuweisende Zusammenspiel nicht ersetzen. Aussagen über reale Integration benötigen eine Prüfung der tatsächlich beteiligten Komponenten; nicht geprüfte Grenzen werden als Einschränkung benannt.
+
+Ändert eine Aufgabe Inhalt, Abhängigkeiten oder Erzeugung eines auslieferbaren Artefakts, etwa eines Container-Images, Pakets oder einer EXE, muss dieses am maßgeblichen Stand erfolgreich gebaut werden. Der Prüfungsabschnitt legt nach den Auswirkungen der Änderung fest, welche Start-, Installations- oder Funktionstests am erzeugten Artefakt erforderlich sind. Der Nachweis identifiziert das geprüfte Artefakt eindeutig und ordnet es dem Codezustand zu; Build-Erfolg und weitere Artefaktprüfungen bleiben unterscheidbar. Prüfungen des Quellcodes allein belegen weder einen erfolgreichen Build noch die Nutzbarkeit des erzeugten Ergebnisses. Die bestehenden Regeln für erforderliche Nachweise und blockierte Prüfungen gelten auch hier.
+
 Der maßgebliche Prüfungsabschnitt nennt exakte Befehle, Arbeitsordner, Voraussetzungen, erwartete Ergebnisse, erforderliche Prüfumgebungen und die CI-Zuordnung. Er kann in der README stehen. Dokumentierte Auswahlregeln bestimmen, welche Bereichsprüfungen bei welchen Änderungen erforderlich sind. Für als verbindlich bezeichnete Prüfungen muss eine ausführbare Prüfung oder eine konkret benannte Einrichtungslücke vorliegen.
 
 Die vereinbarten erforderlichen Prüfungen werden vor dem Merge durch CI abgesichert. Fehlende CI beziehungsweise fehlende Checks werden zentral als Einrichtungslücke dokumentiert und bei Bedarf als Folgeaufgabe erfasst. Ihre Umsetzung erfolgt bei entsprechendem Auftrag. Ein reiner Dokumentationsauftrag umfasst keine stillschweigende CI-Einrichtung.
@@ -376,7 +385,7 @@ Die Muster sind auszufüllende Strukturhilfen. Benötigte Abschnitte können in 
 
 # Arbeitsregeln für [Projektname]
 
-Basis: REPOSITORY_STANDARD.md 1.4 · Übernommen: [Datum]
+Basis: REPOSITORY_STANDARD.md 1.5 · Übernommen: [Datum]
 
 ## Befehle
 
@@ -576,6 +585,10 @@ Entscheidungsstand: [beschlossen / ersetzt] · Datum: [Datum]
 
 Voraussetzungen: [Umgebung, Abhängigkeiten, isolierte Testdaten und Konfiguration]
 
+Testgrenzen: [für Integrations-/End-to-End-Prüfungen reale Komponenten, ersetzte externe Systeme und Grenzen der nachgewiesenen Aussage gemäß Abschnitt 9]
+
+Artefaktprüfungen, soweit zutreffend: [Build-Befehl, erzeugtes Artefakt und Zuordnung zum Codezustand; Auswahlregeln und Befehle für erforderliche Start-/Installations-/Funktionstests am Artefakt gemäß Abschnitt 9]
+
 | Geprüftes Verhalten | Befehl und Arbeitsordner | Erwartetes Ergebnis | Einsatz / erforderliche Umgebung |
 | --- | --- | --- | --- |
 | [Verhalten] | [konkreter Befehl] | [Ergebnis] | [Kernprüfung / Bereichsauslöser; Umgebung und CI-Check oder konkrete Lücke] |
@@ -718,7 +731,7 @@ Er übernimmt die einmalige Zuordnung aller benötigten Informationen zu ihren P
 
 ```text
 
-Erstelle beziehungsweise aktualisiere die projektspezifische Dokumentation des Zielrepositories gemäß der bereitgestellten REPOSITORY_STANDARD.md Version 1.4.
+Erstelle beziehungsweise aktualisiere die projektspezifische Dokumentation des Zielrepositories gemäß der bereitgestellten REPOSITORY_STANDARD.md Version 1.5.
 
 Übernimm selbst die einmalige Zuordnung aller benötigten Informationen zu ihren maßgeblichen Pflegeorten. Verwende vorhandene Struktur und bereits getroffene Entscheidungen. Entscheide eindeutig ableitbare und unkritische Zuordnungen selbst; kläre nur wesentliche offene Entscheidungen mit mir. Bei späteren Aktualisierungen überprüfe vorhandene Zuordnungen und ändere nur die tatsächlich betroffenen Teile.
 
@@ -746,7 +759,9 @@ Stelle je Runde höchstens drei konkrete Fragen. Benenne die fehlende Informatio
 
 Erstelle oder ergänze die benötigten Informationen an den gewählten Orten. Verwende konkrete Pfade, Befehle und Voraussetzungen und kennzeichne, ob Befehle nur ermittelt oder tatsächlich ausgeführt wurden. Übernimm bestätigte Erkenntnisse und Entscheidungen ohne Duplikate. Beschreibe Konfigurationsschnittstellen, Pflichtwerte, tatsächliche Startvalidierung und gegebenenfalls die Übergabe zwischen Host, Container und Anwendung. Verwende nur ungefährliche Beispiele und keine echten Secrets.
 
-Erstelle eine kompakte AGENTS.md anhand von Vorlage 14.1: Standardversion 1.4, Übernahmedatum, Befehle beziehungsweise genaue Verweise, Aufgabenort und Suchweg, unmittelbar geltende Kernregeln, Projektgrenzen und konkrete Lesewege. Eine Versionsnummer ersetzt keine Arbeitsanweisung. Erhalte insbesondere die Pflichten zu erforderlichen Prüfungen, aktueller betroffener Dokumentation, belegtem Schließen von Vorschlägen und brauchbarer Übergabe.
+Dokumentiere im maßgeblichen Prüfungsabschnitt die Testgrenzen und gegebenenfalls erforderlichen Build- und Artefaktprüfungen nach Abschnitt 9. Verwende vorhandene Prüfungen und benenne fehlende Umsetzung als konkrete Einrichtungslücke.
+
+Erstelle eine kompakte AGENTS.md anhand von Vorlage 14.1: Standardversion 1.5, Übernahmedatum, Befehle beziehungsweise genaue Verweise, Aufgabenort und Suchweg, unmittelbar geltende Kernregeln, Projektgrenzen und konkrete Lesewege. Eine Versionsnummer ersetzt keine Arbeitsanweisung. Erhalte insbesondere die Pflichten zu erforderlichen Prüfungen, aktueller betroffener Dokumentation, belegtem Schließen von Vorschlägen und brauchbarer Übergabe.
 
 Verlange bei jeder neuen Aufgabe oder Sitzung den gezielten Relevanzabgleich nach Abschnitt 4. Übernimm passende Bereichsnamen und vorhandene Labels, Scope-Felder oder eindeutige Abschnittszuordnungen für Aufgaben, eigenständige Pläne und Spezifikationen. Dokumentiere den ergänzenden Suchweg; berücksichtige Schnittstellen, Abhängigkeiten und übergreifende Regeln auch außerhalb passender Labels. Nur passende Einträge und Dokumente vollständig lesen; keine vollständige Backlog-Lektüre oder allgemeine Aufräumrunde pro Bugfix.
 

@@ -1,6 +1,6 @@
 # Repository Template
 
-Schlanker Ausgangspunkt für neue Projekte und zentrale Pflege des **Repo-Standards 1.4** (27. September 2026).
+Schlanker Ausgangspunkt für neue Projekte und zentrale Pflege des **Repo-Standards 1.5** (27. September 2026).
 
 Dieses Repository ist ein modularer Dokumentations- und Arbeitsrahmen für KI-gestützte Entwicklung. Es enthält Dokumentation und Vorlagen, keinen Anwendungscode. Es legt keine Sprache, Datenbank, Containertechnik oder CI-Plattform für Zielprojekte fest.
 
@@ -98,4 +98,4 @@ Eine Lizenz ist bewusst nicht vorgegeben. Vor öffentlicher Weitergabe oder exte
 
 ## Herkunft
 
-Grundlage ist die vom Betreiber bereitgestellte Fassung 1.3. Dateiname vereinheitlicht auf `REPOSITORY_STANDARD.md`; maskierte Markdown-Zeichen, fett markierte Überschriften und überzählige Leerzeilen wurden für lesbares Markdown normalisiert. Version 1.4 ergänzt die beschlossene Regel für projektweite Anforderungen und Roadmaps; die ursprüngliche Übernahme der Fassung 1.3 war rein redaktionell. Projektspezifische Auto-Coding-Entscheidungen sind nicht Bestandteil dieses allgemeinen Templates.
+Grundlage ist die vom Betreiber bereitgestellte Fassung 1.3. Dateiname vereinheitlicht auf `REPOSITORY_STANDARD.md`; maskierte Markdown-Zeichen, fett markierte Überschriften und überzählige Leerzeilen wurden für lesbares Markdown normalisiert. Version 1.4 ergänzt die beschlossene Regel für projektweite Anforderungen und Roadmaps; die ursprüngliche Übernahme der Fassung 1.3 war rein redaktionell. Version 1.5 präzisiert Testgrenzen sowie Build- und Artefaktnachweise. Projektspezifische Auto-Coding-Entscheidungen sind nicht Bestandteil dieses allgemeinen Templates.

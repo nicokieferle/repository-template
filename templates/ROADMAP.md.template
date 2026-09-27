@@ -4,6 +4,8 @@ Planungsgrundlage: [Link auf REQUIREMENTS.md oder begründeten maßgeblichen Anf
 
 Aufgaben und aktueller Bearbeitungsstatus: [maßgeblicher Aufgabenort]
 
+Änderungen und Prüfnachweise: [zugehörige PRs beziehungsweise konkrete Commit- und Prüfverweise]
+
 ## Phasen und Abhängigkeiten
 
 | Phase | Angestrebtes Ergebnis | Anforderungen | Voraussetzung / Abhängigkeit | Aufgaben / Detailplan |

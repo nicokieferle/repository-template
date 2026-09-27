@@ -4,7 +4,7 @@
 
 ## Zielbild und Roadmap
 
-[REQUIREMENTS.md und ROADMAP.md im Hauptverzeichnis verlinken. Bei begründeter kleiner Ausnahme stattdessen hier konkrete Abschnitte „Anforderungen“ und „Roadmap“ führen und aus AGENTS verlinken. Keine zweite Aufgabenstatusliste.]
+[REQUIREMENTS.md für Zielbild und Anforderungen sowie ROADMAP.md für geplante Phasen, Reihenfolge und Abhängigkeiten im Hauptverzeichnis verlinken. Bei begründeter kleiner Ausnahme stattdessen hier konkrete Abschnitte „Anforderungen“ und „Roadmap“ führen und aus AGENTS verlinken. Aktuellen Bearbeitungsstand am Aufgabenort und Umsetzungsnachweise in zugehörigen PRs auffindbar machen; keine zweite Aufgabenstatusliste.]
 
 ## Einrichtung und Start
 
@@ -20,7 +20,7 @@
 
 ## Konfiguration
 
-[Maßgebliche Schnittstellen, Pflichtwerte, Defaults, Startvalidierung und gegebenenfalls Verweis auf passende ungefährliche Beispiele. Betriebsprofil nur bei tatsächlicher Relevanz.]
+[Maßgebliche Schnittstellen, Pflichtwerte, Defaults, Startvalidierung und gegebenenfalls Verweis auf passende ungefährliche Beispiele. .env.example nur bei passender Ladeweise; Betriebsprofil nur bei tatsächlicher Relevanz, mit Übergabe durch Starter/Deployment und Zuordnung von Host- zu Anwendungspfaden.]
 
 ## Prüfungen
 
@@ -32,4 +32,4 @@
 
 ## Weitere Informationen
 
-[Nur tatsächlich vorhandene relevante Dokumente verlinken. Entscheidungen und Fehlerwissen bei geringem Umfang in passenden bestehenden Abschnitten pflegen.]
+[Nur tatsächlich vorhandene relevante Dokumente verlinken. Entscheidungen und Fehlerwissen in passenden bestehenden Abschnitten pflegen; bei größerem Umfang, eigenständiger Pflege oder gezieltem Lesebedarf auslagern. Keine leeren Vorratsdokumente.]

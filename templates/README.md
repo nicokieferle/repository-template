@@ -2,6 +2,8 @@
 
 Die Dateien mit Endung `.template` sind Strukturhilfen, keine aktiven Projektanweisungen. Sie dürfen Platzhalter enthalten. Die Ablageregeln aus Standardabschnitt 3 gelten: Längerfristige Projekte führen REQUIREMENTS.md und ROADMAP.md im Hauptverzeichnis; für die kleine Ausnahme genügen README-Abschnitte. Andere Abschnitte können in passende vorhandene Dokumente übernommen werden.
 
+Die Auswahl erfolgt bei ausdrücklich beauftragter Einrichtung. Ein Muster erzeugt keine Pflicht zu einer gleichnamigen Datei oder einem vorsorglichen docs-Verzeichnis. Weitere Dokumente lohnen sich bei größerem Umfang, eigenständiger Pflege oder gezieltem Lesebedarf. Eine .env.example ist nur bei passender Konfigurationsweise sinnvoll; sie wird nicht pauschal mitgeliefert.
+
 | Vorlage | Einsatz |
 | --- | --- |
 | [AGENTS.md.template](AGENTS.md.template) | Konkrete Projektregeln und Lesewege; Standard 14.1. |

@@ -30,7 +30,9 @@ Bereits in Version 1.3 eingeführte Regeln:
 
 Diese Datei ist die allgemeine Bauanleitung und ein Nachschlagewerk. Sie wird bei der Einrichtung oder bewussten Aktualisierung eines Projekts vollständig ausgewertet. Für gewöhnliche Entwicklungsaufgaben ist die kurze, projektspezifische `AGENTS.md` der Einstieg; der gesamte Standard samt Vorlagen gehört nicht zur ständigen Pflichtlektüre.
 
-Der Einrichtungs-Prompt in Abschnitt 16 übernimmt die einmalige Zuordnung benötigter Informationen zu ihren maßgeblichen Pflegeorten. Er verwendet vorhandene Struktur und Projektentscheidungen, entscheidet eindeutige Zuordnungen selbst und klärt nur wesentliche offene Entscheidungen mit dem Nutzer. Bei späteren Aktualisierungen werden nur betroffene Zuordnungen neu bewertet.
+Der Einrichtungs-Prompt in Abschnitt 16 übernimmt die einmalige Zuordnung benötigter Informationen zu ihren maßgeblichen Pflegeorten. Er verwendet vorhandene Struktur und Projektentscheidungen, entscheidet eindeutige Zuordnungen selbst und klärt nur wesentliche offene Entscheidungen mit dem Nutzer. Bei späteren Aktualisierungen werden nur betroffene Zuordnungen neu bewertet. Er wird ausdrücklich beauftragt; das Erzeugen oder Klonen eines Repositories startet ihn nicht automatisch.
+
+Das zentrale Template enthält diesen Standard, Vorlagen und Hilfen für deren Einrichtung und Prüfung. Dieser Bestand ist vom eingerichteten Zielprojekt zu unterscheiden: README und AGENTS sind dessen Einstiege; Anforderungen und Roadmap folgen Abschnitt 3. Die mitgelieferten Muster sind Strukturhilfen, keine aktiven Projektdokumente oder automatisch geltenden Arbeitsanweisungen.
 
 Bestehende Dokumentation, passende Dateien, funktionierende Abläufe, fremde Arbeit und weiterhin relevante Codekommentare werden erhalten. Der Standard ist kein Auftrag zur pauschalen Neustrukturierung eines vorhandenen Projekts. Projektspezifische Abweichungen und tatsächliche Ablageorte müssen eindeutig erkennbar sein.
 
@@ -93,7 +95,7 @@ Bei bestehenden Projekten werden passende Inhalte verlustfrei übernommen und al
 
 Bei Änderungen am Zielbild werden betroffene Anforderungen, Roadmap und Aufgabenbezüge im selben Änderungsvorgang abgeglichen. Bei Änderungen der Reihenfolge oder Abhängigkeiten wird die Roadmap angepasst; reine Aufgabenstatuswechsel bleiben am Aufgabenort. Grundlegende Richtungsänderungen mit Begründung nachvollziehbar halten, ohne neben Git eine zweite Änderungshistorie zu verlangen.
 
-Architektur- und Testinformationen bleiben erforderlich, soweit sie zum Projekt gehören. Dafür besteht keine Pflicht zu eigenen Dateien. Weitere Inhalte werden ausgelagert, wenn sie umfangreich sind, unabhängig gepflegt werden müssen oder regelmäßig gezielt gebraucht werden. Es gibt keine starre Dateigrenze und keine leeren Vorratsdateien.
+Architektur- und Testinformationen bleiben erforderlich, soweit sie zum Projekt gehören. Dafür besteht keine Pflicht zu eigenen Dateien. Weitere Inhalte werden ausgelagert, wenn sie umfangreich sind, unabhängig gepflegt werden müssen oder regelmäßig gezielt gebraucht werden. Die genannten docs-Pfade sind Beispiele, kein vorab anzulegender Verzeichnisbaum. Es gibt keine starre Dateigrenze und keine leeren Vorratsdateien.
 
 Anwendungscode, Tests, Betriebsskripte und CI-Konfiguration folgen den Konventionen der verwendeten Technologien. Der Architekturüberblick nennt tatsächliche Codepfade. Geplante Funktionen werden ausdrücklich als geplant gekennzeichnet.
 
@@ -101,7 +103,7 @@ Der Aufgabenort wird beim Einrichten festgelegt und in `AGENTS.md` mit Suchweg g
 
 Abnahmekriterien haben ebenfalls genau einen maßgeblichen Ort: Sie können im Issue stehen oder bei einer ausführlicheren Spezifikation dort gepflegt und vom Issue verlinkt werden. Der Abschlussstatus des Gesamtauftrags gehört zum Aufgabenort. Ein technischer Plan verweist auf ihn und pflegt keinen zweiten Gesamtstatus.
 
-Ein Aufgabenort regelt die Informationsablage; er ist keine technische Garantie gegen doppelte Bearbeitung. Vor paralleler Arbeit sind vorhandene Zuordnungen und laufende Änderungen an der betroffenen Aufgabe zu berücksichtigen.
+Ein Aufgabenort regelt die Informationsablage; er ist keine technische Garantie gegen doppelte Bearbeitung. Externe Aufgabenverwaltung vermeidet ein parallel gepflegtes Repo-Backlog und reduziert damit Konfliktquellen, verhindert aber keine Merge-Konflikte bei gemeinsam geänderten Dateien. Vor paralleler Arbeit sind vorhandene Zuordnungen und laufende Änderungen an der betroffenen Aufgabe zu berücksichtigen.
 
 ## 4. Gezielter Kontext bei Arbeitsbeginn
 
@@ -392,7 +394,7 @@ Basis: REPOSITORY_STANDARD.md 1.4 · Übernommen: [Datum]
 
 - Bereichszuordnung und Suchweg: [vorhandene Labels/Scope-Angaben oder Abschnitte und ergänzende Suche; Schnittstellen, Abhängigkeiten und übergreifende Regeln berücksichtigen].
 
-- Bei neuer Aufgabe/Sitzung geltende Anweisungen lesen, gezielt relevante Einträge ermitteln und passende Details laden.
+- Bei neuer Aufgabe/Sitzung AGENTS.md und alle geltenden Bereichsanweisungen lesen, gezielt relevante Einträge ermitteln und passende Details laden. Der Einstieg begrenzt die Lektüre nicht auf diese eine Datei.
 
 - Lesewege: [Aufgabenart → tatsächlich vorhandener Abschnitt/Datei; Fehlerwissen und Pläne einbeziehen].
 
@@ -612,6 +614,8 @@ Nachweisort: [PR/Plan/Lauf; Prüfung, Umgebung, Codezustand, Ergebnis und Beleg 
 
 Schnittstellen und Ladeweise: [tatsächlich unterstützte Quellen und gegebenenfalls Vorrang]
 
+Konfigurationsbeispiele: [nur passende ungefährliche Beispiele; .env.example bei tatsächlich passender Ladeweise, keine Pflichtdatei]
+
 | Einstellung | Zweck | Pflicht? | Typ/zulässige Werte | Default | Geheim? |
 | --- | --- | --- | --- | --- | --- |
 | [Name] | [Zweck] | [Ja/Nein/Bedingung] | [Definition] | [Wert oder keiner] | [Ja/Nein] |
@@ -666,6 +670,8 @@ Abnahmekriterien: [überprüfbare Kriterien ODER Verweis auf ihren maßgeblichen
 Planungsgrundlage: [Link auf REQUIREMENTS.md oder begründeten maßgeblichen Anforderungsabschnitt]
 
 Aufgaben und aktueller Bearbeitungsstatus: [maßgeblicher Aufgabenort]
+
+Änderungen und Prüfnachweise: [zugehörige PRs beziehungsweise konkrete Commit- und Prüfverweise]
 
 ## Phasen und Abhängigkeiten
 
@@ -728,7 +734,7 @@ Stelle README.md und AGENTS.md als Einstieg sicher. Für längerfristige Projekt
 
 Bestimme einen maßgeblichen Aufgabenort für Gesamtstatus, Priorität und Verbesserungsvorschläge. Übernimm einen geeigneten bestehenden Ort. Wähle anhand des tatsächlichen Workflows Issues oder einen Markdown-Backlog; kläre eine wesentliche offene Wahl mit mir. PRs dokumentieren Änderungen und Prüfergebnisse; technische Pläne behalten Umsetzungsschritte, Prüfstand, Blocker und nächsten Schritt, aber keinen zweiten Gesamtstatus. Auch Abnahmekriterien haben genau einen maßgeblichen Ort.
 
-Ermittle ein gegebenenfalls benötigtes Betriebsprofil. Die Linux-/Homelab-Pfade gelten nur für die entsprechende Umgebung; die Anwendung benötigt keine fest eingebauten Host-Pfade. Halte Zuordnung und Suchwege in den Einstiegsdokumenten fest. Eine zusätzliche Zuordnungsdatei ist nicht nötig.
+Ermittle ein gegebenenfalls benötigtes Betriebsprofil. Die Linux-/Homelab-Pfade gelten nur für die entsprechende Umgebung; die Anwendung benötigt keine fest eingebauten Host-Pfade. Lege .env.example nur an, wenn sie zur tatsächlichen Konfigurationsweise passt; erzeuge keine erfundenen Einstellungen. Halte Zuordnung und Suchwege in den Einstiegsdokumenten fest. Eine zusätzliche Zuordnungsdatei ist nicht nötig.
 
 3. Nur wesentliche Unklarheiten erfragen
 

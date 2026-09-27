@@ -15,6 +15,8 @@ TEMPLATES = (
     "testing.md.template",
     "architecture.md.template",
     "configuration.md.template",
+    "REQUIREMENTS.md.template",
+    "ROADMAP.md.template",
 )
 
 
@@ -22,6 +24,7 @@ def main() -> int:
     errors = []
     required = [
         "README.md", "AGENTS.md", "SETUP.md", "REPOSITORY_STANDARD.md",
+        "REQUIREMENTS.md", "ROADMAP.md",
         "templates/README.md", "templates/README.md.template",
         ".gitignore", ".gitattributes", ".editorconfig",
         *[f"templates/{name}" for name in TEMPLATES],
@@ -34,7 +37,7 @@ def main() -> int:
         print("\n".join(errors))
         return 1
     standard = (ROOT / "REPOSITORY_STANDARD.md").read_text(encoding="utf-8")
-    if not re.search(r"^Version: 1\.3\b", standard, re.M):
+    if not re.search(r"^Version: 1\.4\b", standard, re.M):
         errors.append("Unerwartete Standardversion; bewusste Anpassung erforderlich.")
     sections = re.findall(r"^## (\d+)\. ", standard, re.M)
     if sections != [str(number) for number in range(1, 18)]:
@@ -69,7 +72,7 @@ def main() -> int:
         print("Template-Prüfung: FEHLER")
         print("\n".join(errors))
         return 1
-    print("Template-Prüfung: OK (Standard 1.3, neun synchronisierte Muster, lokale Dateiverweise)")
+    print("Template-Prüfung: OK (Standard 1.4, elf synchronisierte Muster, lokale Dateiverweise)")
     return 0
 
 

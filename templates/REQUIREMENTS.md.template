@@ -1,0 +1,23 @@
+# Anforderungen
+
+## Zielbild und Grenzen
+
+[Beschlossener Zweck, Zielgruppe, gewünschtes Ergebnis und Nicht-Ziele. Keine geplante Funktion als bereits implementiert darstellen.]
+
+## Beschlossene Anforderungen
+
+### REQ-01 – [Bezeichnung]
+
+Bereich: [Scope]
+
+[Erwartetes Verhalten und relevante Fehlerfälle]
+
+Abnahmekriterien: [überprüfbare Kriterien ODER Verweis auf ihren maßgeblichen Ort]
+
+## Offene Entscheidungen
+
+[Nur tatsächliche ungeklärte Punkte; Vorschläge ausdrücklich kennzeichnen. Abschnitt bei fehlendem Bedarf weglassen.]
+
+## Umsetzung und Nachweise
+
+[Roadmap und maßgeblichen Aufgabenort verlinken; keine kopierte Aufgabenstatusliste. Implementierungs- und Prüfnachweise gezielt verlinken.]

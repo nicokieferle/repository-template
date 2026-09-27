@@ -2,6 +2,10 @@
 
 [Zweck, Zielgruppe und wichtigste Funktionen. Geplante Funktionen ausdrücklich kennzeichnen.]
 
+## Zielbild und Roadmap
+
+[REQUIREMENTS.md und ROADMAP.md im Hauptverzeichnis verlinken. Bei begründeter kleiner Ausnahme stattdessen hier konkrete Abschnitte „Anforderungen“ und „Roadmap“ führen und aus AGENTS verlinken. Keine zweite Aufgabenstatusliste.]
+
 ## Einrichtung und Start
 
 [Voraussetzungen, unterstützte Versionen, exakte Befehle und Arbeitsordner. Tatsächlich ausgeführte Schritte von nur ermittelten Befehlen unterscheiden.]

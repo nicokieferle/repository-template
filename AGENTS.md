@@ -1,12 +1,14 @@
 # Arbeitsregeln für das Repository Template
 
-Basis: REPOSITORY_STANDARD.md 1.3 · Übernommen: 27. September 2026
+Basis: REPOSITORY_STANDARD.md 1.4 · Übernommen: 27. September 2026
 
 ## Zuerst den Repository-Typ bestimmen
 
 Diese Datei gilt für das zentrale Template. In einem daraus erzeugten, noch nicht eingerichteten Projekt ist sie eine vorläufige Einstiegsanweisung: Bei beauftragter Einrichtung [SETUP.md](SETUP.md) anwenden und anschließend durch projektspezifische Regeln ersetzen. Das bloße Lesen startet keinen Einrichtungsauftrag.
 
 ## Befehle und Lesewege
+
+- Zielbild: [REQUIREMENTS.md](REQUIREMENTS.md); projektweite Planung: [ROADMAP.md](ROADMAP.md). Bei Ziel- oder Planänderungen beide mit den Aufgabenbezügen abgleichen; Aufgabenstatus bleibt in GitHub Issues.
 
 - Lokale Prüfung, Voraussetzungen und Grenzen: [README.md, Abschnitt Prüfungen](README.md#prüfungen).
 - Standardänderung: betroffene Abschnitte in [REPOSITORY_STANDARD.md](REPOSITORY_STANDARD.md), zugehörige Muster unter templates/ und SETUP.md lesen. Gesamten Standard nur für Einrichtung, umfassende Aktualisierung oder unklare übergreifende Auswirkungen laden.
@@ -18,7 +20,7 @@ Diese Datei gilt für das zentrale Template. In einem daraus erzeugten, noch nic
 - Auftrag und erforderliche Anpassungen umsetzen; unabhängige Verbesserungen am maßgeblichen Aufgabenort erfassen. Vorschläge sind keine Ausführungsaufträge.
 - Vor wesentlichen Änderungen überprüfbare Abnahmekriterien festhalten; komplexe oder risikoreiche Arbeit technisch planen. Keine leeren Vorratsdokumente und keine zweite Statusführung.
 - Vorhandene fremde Arbeit, brauchbare Struktur und weiterhin relevante Kommentare erhalten. Gesamten Diff auf unbeabsichtigte Änderungen prüfen.
-- Standard, betroffene Muster und Einrichtungsanweisung konsistent halten. Muster 14.1–14.9 nicht unabhängig vom Standard verändern. Projektbesonderheiten nicht als universelle Vorgabe einschleusen.
+- Standard, betroffene Muster und Einrichtungsanweisung konsistent halten. Muster 14.1–14.11 nicht unabhängig vom Standard verändern. Projektbesonderheiten nicht als universelle Vorgabe einschleusen.
 - Passende Prüfungen ausführen; Befehl, Umgebung, geprüften Codezustand inklusive uncommitteter Änderungen, Ergebnis und Beleg zuordnen. Fehlende Nachweise benennen. Lokaler Erfolg ist kein CI-Erfolg.
 - Betroffene Dokumentation im selben PR aktualisieren. Wiederverwendbare bestätigte Fehlererkenntnisse am passenden vorhandenen Ort festhalten.
 - Bei Unterbrechung technischen Fortschritt und nächsten Schritt im vorhandenen Plan oder Auftrag dokumentieren; keinen zweiten Gesamtstatus führen.

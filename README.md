@@ -8,10 +8,9 @@ Dieses Repository enthält Dokumentation und Vorlagen, keinen Anwendungscode. Es
 
 ### Neues Projekt
 
-1. Dieses Verzeichnis als eigenes Repository übernehmen und bei Bedarf auf GitHub als Template kennzeichnen. Das ZIP allein erstellt kein GitHub-Repository und aktiviert keine Einstellung.
-2. Aus dem Template ein eigenes Projekt-Repository erzeugen. Projektname, Zweck und wesentliche Anforderungen mitgeben.
-3. Den Auftrag aus [SETUP.md](SETUP.md) an den Agenten im **Zielrepository** übergeben. Ein vorbereiteter Auftrag ist noch kein gestarteter Lauf.
-4. Der Agent ersetzt die Einstiegstexte durch konkrete Projektinformationen und prüft die Einrichtung. Unbekannte Befehle, Checks und Autorisierungen werden als offene Punkte ausgewiesen.
+1. Auf GitHub über **Use this template** ein eigenes Projekt-Repository erzeugen. Dieses Repository ist bereits als Template aktiviert.
+2. Projektname, Zweck und wesentliche Anforderungen mitgeben und den Auftrag aus [SETUP.md](SETUP.md) an den Agenten im **Zielrepository** übergeben. Ein vorbereiteter Auftrag ist noch kein gestarteter Lauf.
+3. Der Agent ersetzt die Einstiegstexte durch konkrete Projektinformationen und prüft die Einrichtung. Unbekannte Befehle, Checks und Autorisierungen werden als offene Punkte ausgewiesen.
 
 Ein gewöhnlicher Git-Klon übernimmt die Historie des Vorlagenrepos. Für eigenständige neue Projekte ist eine Erstellung aus dem Template oder ein neues Git-Repository aus diesen Dateien zweckmäßiger.
 
@@ -27,7 +26,8 @@ Den [Standard](REPOSITORY_STANDARD.md) und [Einrichtungsauftrag](SETUP.md) als R
 | [AGENTS.md](AGENTS.md) | Arbeitsanweisungen für die Pflege dieses Templates und Erkennung noch nicht eingerichteter Ableitungen. |
 | [SETUP.md](SETUP.md) | Einmaliger Auftrag zur projektspezifischen Einrichtung. |
 | [templates/README.md](templates/README.md) | Auswahl und Verwendung der optionalen Strukturhilfen. |
-| [scripts/check_template.py](scripts/check_template.py) | Lokaler Abgleich der extrahierten Vorlagen mit dem Standard und Prüfung der Paketstruktur. |
+| [scripts/check_template.py](scripts/check_template.py) | Abgleich der extrahierten Vorlagen mit dem Standard und Prüfung der Paketstruktur, lokal und in CI. |
+| [.github/workflows/template-check.yml](.github/workflows/template-check.yml) | GitHub-Actions-Workflow für dieselbe Template-Prüfung. |
 
 Im Zielprojekt sind README.md und AGENTS.md die Einstiege. Weitere Dokumente entstehen nur bei konkretem Bedarf. Die Muster sind keine Pflicht-Dateiliste.
 
@@ -37,7 +37,7 @@ Der Standard ist die maßgebliche Regelfassung. Die neun Muster aus Abschnitt 14
 
 Die Zielprojekte erhalten eigene, eigenständig verständliche Regeln. Sie benötigen im normalen Betrieb keinen Zugriff auf dieses Template. Eine spätere Standardversion wird bewusst geprüft und übernommen, niemals automatisch als neue Regel aktiviert.
 
-Aufgabenort für die Pflege dieses Templates: Nach Veröffentlichung die Issues des tatsächlichen Template-Repositories. Suche nach betroffenen Pfaden, Standardabschnitten und Begriffen; vorhandene Labels nur ergänzend nutzen. Bis ein Repository existiert, bleibt die beauftragende Unterhaltung der Aufgabenort. Es wird kein zusätzlicher Backlog angelegt.
+Aufgabenort für die Pflege dieses Templates: [GitHub Issues in Hengsto/repository-template](https://github.com/Hengsto/repository-template/issues). Suche dort nach betroffenen Pfaden, Standardabschnitten und Begriffen; vorhandene Labels nur ergänzend nutzen. Es wird kein zusätzlicher Backlog angelegt.
 
 ## Prüfungen
 
@@ -49,7 +49,13 @@ python3 scripts/check_template.py
 
 Erwartung: Exit 0 mit `Template-Prüfung: OK`. Geprüft werden Vorlagenabgleich, benötigte Dateien, Standardversion und elementare Formatmerkmale. Zusätzlich geänderte Verweise und den gesamten Diff fachlich prüfen. Der Check belegt weder Anwendungstests noch die inhaltliche Vollständigkeit einer späteren Projekteinstellung.
 
-**CI und Merge-Schutz sind in diesem Paket nicht eingerichtet.** Bei Veröffentlichung werden erforderliche Checks und deren technische Absicherung gesondert festgelegt. Ein lokaler Erfolg ist kein CI-Nachweis. Es gibt keinen Build, Anwendungsstart oder Deploymentvorgang für dieses Dokumentationstemplate.
+Der Workflow [.github/workflows/template-check.yml](.github/workflows/template-check.yml) führt denselben Befehl bei Pull Requests, Pushes auf `main` und manuellem Start aus. Der Check heißt **Template check** und verwendet Python 3.11 auf Ubuntu 24.04. Die verwendeten Actions sind auf konkrete Commit-SHAs festgelegt; der Workflow erhält nur Lesezugriff auf Repository-Inhalte.
+
+Für Änderungen an diesem Template muss der Check am maßgeblichen aktuellen PR-Stand bestehen. Den konkreten Lauf und geprüften Commit als Nachweis verlinken; ein lokaler Erfolg ist kein CI-Nachweis. Läufe sind unter [GitHub Actions](https://github.com/Hengsto/repository-template/actions) sichtbar.
+
+**Eine technische Merge-Sperre durch verpflichtende Statuschecks ist weiterhin eine gesonderte Einrichtungslücke.** Der Workflow allein erzwingt sie nicht. Es gibt keinen Build, Anwendungsstart oder Deploymentvorgang für dieses Dokumentationstemplate.
+
+In abgeleiteten Projekten ist dieser Check keine Anwendungsprüfung. Wird das Template-Prüfskript bei der Einrichtung entfernt, muss auch der zugehörige unveränderte Template-Workflow gemäß [SETUP.md](SETUP.md) entfernt werden. Bereits angepasste Projekt-Workflows bleiben erhalten; ihr weiterer Umgang ist ausdrücklich zu klären.
 
 ## Konfiguration, Sicherheit und Lizenz
 

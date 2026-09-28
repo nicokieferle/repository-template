@@ -410,10 +410,11 @@ Basis: REPOSITORY_STANDARD.md 1.6 · Übernommen: [Datum]
 - Status und Vorschläge: [genau ein Aufgabenort mit Suchweg, z. B. Issues oder Markdown-Backlog].
 - Bereichszuordnung: [Labels/Scope/Abschnitte und ergänzende Suche nach Pfaden, Schnittstellen und Abhängigkeiten]. Bei neuer Aufgabe die geltenden Bereichsanweisungen und passende Details lesen.
 - Aufgabenspezifische Quellen: [Aufgabenart → vorhandener Abschnitt/Datei für Architektur, Prüfungen, Fehlerwissen, Entscheidungen oder Pläne; nur Relevantes laden].
+- Issue-/PR-Vorlagen (falls verwendet): [Links; bei API/CLI-Erstellung passende Inhalte übernehmen, bestehende gleichwertige Inhalte erhalten und offene Fragen oder ausstehende Nachweise kennzeichnen].
 
 ## Kernregeln
 
-- Vor neuen/wesentlich geänderten Funktionen Abnahmekriterien klären; komplexe oder risikoreiche Änderungen technisch planen. Auftrag und nötige Anpassungen umsetzen; unabhängige Vorschläge am Aufgabenort erfassen und nur mit Nachweis schließen.
+- Vor neuen/wesentlich geänderten Funktionen Abnahmekriterien klären; komplexe oder risikoreiche Änderungen technisch planen. Auftrag und nötige Anpassungen umsetzen; unabhängige Vorschläge am Aufgabenort erfassen. Vorschläge sind keine Ausführungsaufträge; Einträge nur mit Nachweis schließen.
 - Funktionale Änderungen: Kernprüfungen und erforderliche Bereichstests ausführen. Umgebung, Codezustand, Ergebnis und Beleg zuordnen; fehlende Nachweise mit Grund benennen.
 - Betroffene Dokumentation im selben PR pflegen; bei Ziel- oder Planänderungen Anforderungen, Roadmap und Aufgabenbezüge abgleichen. Temporäre Aufgaben und Status bleiben am Aufgabenort oder im technischen Plan, nicht in dieser Datei.
 - Fremde Arbeit und relevante Kommentare erhalten; den gesamten Diff prüfen. Bei Unterbrechung technische Schritte, Prüfergebnisse und nächsten Schritt im vorhandenen Plan festhalten.

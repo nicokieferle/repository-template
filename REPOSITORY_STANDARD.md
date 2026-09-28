@@ -1,12 +1,17 @@
 # Repo-Standard für KI-gestützte Entwicklung
 
-Version: 1.5 · Stand: 27. September 2026
+Version: 1.6 · Stand: 28. September 2026
 
 Dieser Standard beschreibt, welche Informationen und Arbeitsregeln ein Repository für zuverlässige KI-gestützte Entwicklung benötigt. Er unterscheidet erforderliche Informationen von ihrer Ablage: `README.md` und `AGENTS.md` bilden den Einstieg; längerfristige Projekte führen zusätzlich `REQUIREMENTS.md` und `ROADMAP.md` gemäß Abschnitt 3. Weitere Dateien entstehen bei konkretem Bedarf.
 
 Dokumentation und KI-Arbeitsregeln sind deutsch. Codebezeichner sowie Datei- und Ordnernamen sind englisch. Die Codestruktur folgt Sprache, Framework und Projekt.
 
-Änderungen gegenüber Version 1.4:
+Änderungen gegenüber Version 1.5:
+
+- `AGENTS.md` bleibt eine kompakte Ebene für unmittelbar geltende Regeln und konkrete Lesewege; temporäre Aufgaben und ausführliche Verfahren erhalten eigene Pflegeorte.
+- Bereichsanweisungen und Agent-Skills sind bedarfsabhängig. Maschinell prüfbare Vorgaben werden nach Möglichkeit in Tests, Konfiguration oder CI abgesichert.
+
+Bereits in Version 1.5 eingeführte Regeln:
 
 - Integrations- und End-to-End-Prüfungen benennen reale Komponenten und Mock-Grenzen.
 - Änderungen an auslieferbaren Artefakten benötigen einen Build-Nachweis und die nach Projektrisiko erforderlichen Prüfungen des erzeugten Ergebnisses.
@@ -45,6 +50,8 @@ Bestehende Dokumentation, passende Dateien, funktionierende Abläufe, fremde Arb
 
 Eine Markdown-Datei erzwingt das Lesen durch ein Agentenwerkzeug nicht technisch. Der verwendete Einstieg muss eingerichtet sein. Ausführbare Prüfungen und erforderliche CI-Checks sichern überprüfbare Anforderungen ab; ihre Einrichtung oder erfolgreiche Ausführung darf nur behauptet werden, wenn sie tatsächlich erfolgt ist.
 
+Agentenanweisungen sind kein Projekt-Wiki: `AGENTS.md` enthält direkt nötige, dauerhaft geltende Grenzen und verweist für Details auf maßgebliche Quellen. Welche Dateien automatisch geladen werden, hängt vom verwendeten Werkzeug und dessen Konfiguration ab; eine Verlinkung allein garantiert kein Nachladen.
+
 ## 2. Vereinbarte Grundentscheidungen
 
 | Thema | Regel |
@@ -76,6 +83,7 @@ Jede Information erhält einen maßgeblichen Pflegeort. Andere Stellen verweisen
 | Kernprüfungen, Bereichstests, Voraussetzungen und CI-Zuordnung | Abschnitt in `README.md`; kurze maßgebliche Arbeitsbefehle können auch in `AGENTS.md` stehen | Zum Beispiel `docs/testing.md`. Andere Stellen verweisen auf den gewählten Ort. |
 | Konfiguration und Startvalidierung | Abschnitt in `README.md`, bei Bedarf `.env.example` | Zum Beispiel `docs/configuration.md`. |
 | Agentenanweisungen und Lesewege | `AGENTS.md` | Zusätzliche bereichsspezifische Anweisungen bei tatsächlichen Unterschieden. |
+| Wiederkehrendes spezialisiertes Agentenverfahren | Bei Bedarf ein konkreter Arbeitsablauf am vorhandenen Ort | Optional ein thematisch abgegrenzter Skill mit `SKILL.md` und bei Bedarf Skripten/Referenzen; keine Pflichtsammlung. |
 | Gesamtstatus, Priorität und Verbesserungsvorschläge | Festgelegter Aufgabenort | Issues oder ein Markdown-Backlog, beispielsweise `docs/backlog.md` beziehungsweise eine bereits vorhandene `docs/improvements.md`. |
 | Zielbild, Anforderungen und Abnahmekriterien | Klar benannter README-Abschnitt | `REQUIREMENTS.md` im Hauptverzeichnis; ausführliche Kriterien bei Bedarf eindeutig in verlinkten Spezifikationen oder Aufgaben. |
 | Projektweite Phasen, Reihenfolge und Abhängigkeiten | Klar benannter README-Abschnitt | `ROADMAP.md` im Hauptverzeichnis; Verweise auf Anforderungen, Aufgaben und technische Detailpläne. |
@@ -101,6 +109,12 @@ Bei bestehenden Projekten werden passende Inhalte verlustfrei übernommen und al
 Bei Änderungen am Zielbild werden betroffene Anforderungen, Roadmap und Aufgabenbezüge im selben Änderungsvorgang abgeglichen. Bei Änderungen der Reihenfolge oder Abhängigkeiten wird die Roadmap angepasst; reine Aufgabenstatuswechsel bleiben am Aufgabenort. Grundlegende Richtungsänderungen mit Begründung nachvollziehbar halten, ohne neben Git eine zweite Änderungshistorie zu verlangen.
 
 Architektur- und Testinformationen bleiben erforderlich, soweit sie zum Projekt gehören. Dafür besteht keine Pflicht zu eigenen Dateien. Weitere Inhalte werden ausgelagert, wenn sie umfangreich sind, unabhängig gepflegt werden müssen oder regelmäßig gezielt gebraucht werden. Die genannten docs-Pfade sind Beispiele, kein vorab anzulegender Verzeichnisbaum. Es gibt keine starre Dateigrenze und keine leeren Vorratsdateien.
+
+Eine lokale `AGENTS.md` entsteht nur, wenn ein Unterbereich tatsächlich zusätzliche geltende Regeln benötigt. Globale Regeln bleiben in der Root-Datei; lokale Regeln beschreiben ausschließlich die Ergänzungen für ihren Bereich und widersprechen den globalen Grenzen nicht. Bei mehreren berührten Bereichen sind alle jeweils geltenden Anweisungen zu berücksichtigen. Eine temporäre Aufgabe oder einzelne Migration gehört dagegen in Issue, PR oder einen nur bei Bedarf angelegten technischen Plan.
+
+Ein Skill lohnt sich für einen spezialisierten, wiederkehrenden Ablauf, der bei gewöhnlichen Aufgaben nicht gebraucht wird. Seine `SKILL.md` nennt Auslöser, Voraussetzungen, Schritte, Prüfkriterien und bei Bedarf relative Verweise auf Skripte oder Beispiele. Gemeinsame Projektregeln bleiben am maßgeblichen Ort und werden verlinkt statt kopiert. Skills werden nur ergänzt, wenn das Zielprojekt sie tatsächlich verwendet; beispielsweise kann `.agents/skills/<name>/SKILL.md` als projektinterne Ablage dienen. Die Erkennung dieses Pfads ist werkzeugabhängig und muss für die verwendeten Agenten eingerichtet oder über `AGENTS.md` auffindbar gemacht werden. Ein Skill ersetzt keine automatisierte Prüfung und keine unmittelbar geltende Sicherheits- oder Projektgrenze.
+
+Automatisch überprüfbare Regeln gehören möglichst in Formatter, Linter, Tests, Schemata oder CI. Markdown erklärt deren Zweck, Auswahl, Befehle und Grenzen; es behauptet keine technische Durchsetzung ohne entsprechende Einrichtung.
 
 Anwendungscode, Tests, Betriebsskripte und CI-Konfiguration folgen den Konventionen der verwendeten Technologien. Der Architekturüberblick nennt tatsächliche Codepfade. Geplante Funktionen werden ausdrücklich als geplant gekennzeichnet.
 
@@ -385,53 +399,32 @@ Die Muster sind auszufüllende Strukturhilfen. Benötigte Abschnitte können in 
 
 # Arbeitsregeln für [Projektname]
 
-Basis: REPOSITORY_STANDARD.md 1.5 · Übernommen: [Datum]
+Basis: REPOSITORY_STANDARD.md 1.6 · Übernommen: [Datum]
 
-## Befehle
+## Befehle und Lesewege
 
-- Setup / Start / Build: [konkrete gültige Befehle oder genaue maßgebliche Verweise].
+- Setup / Start / Build: [konkrete Befehle oder genauer Verweis auf README/maßgebliche Anleitung].
+- Kernprüfungen und Bereichstests: [Befehle, Voraussetzungen und Auswahlregel oder genauer Verweis].
 
-- Kernprüfungen: [Befehle und Voraussetzungen oder genauer Verweis].
-
-- Bereichstests: [konkreter Auswahlweg und maßgebliche Anweisungen].
-
-## Aufgaben und Kontext
-
-- Zielbild und Roadmap: [Links auf REQUIREMENTS.md und ROADMAP.md im Hauptverzeichnis; bei kleiner Ausnahme Begründung und Links auf beide README-Abschnitte].
-
-- Aufgabenort für Gesamtstatus und Vorschläge: [Issue-Bereich oder genau ein Markdown-Backlog].
-
-- Bereichszuordnung und Suchweg: [vorhandene Labels/Scope-Angaben oder Abschnitte und ergänzende Suche; Schnittstellen, Abhängigkeiten und übergreifende Regeln berücksichtigen].
-
-- Bei neuer Aufgabe/Sitzung AGENTS.md und alle geltenden Bereichsanweisungen lesen, gezielt relevante Einträge ermitteln und passende Details laden. Der Einstieg begrenzt die Lektüre nicht auf diese eine Datei.
-
-- Lesewege: [Aufgabenart → tatsächlich vorhandener Abschnitt/Datei; Fehlerwissen und Pläne einbeziehen].
+- Zielbild und Planung: [Links auf REQUIREMENTS.md und ROADMAP.md; bei kleiner Ausnahme Begründung und Links auf beide README-Abschnitte].
+- Status und Vorschläge: [genau ein Aufgabenort mit Suchweg, z. B. Issues oder Markdown-Backlog].
+- Bereichszuordnung: [Labels/Scope/Abschnitte und ergänzende Suche nach Pfaden, Schnittstellen und Abhängigkeiten]. Bei neuer Aufgabe die geltenden Bereichsanweisungen und passende Details lesen.
+- Aufgabenspezifische Quellen: [Aufgabenart → vorhandener Abschnitt/Datei für Architektur, Prüfungen, Fehlerwissen, Entscheidungen oder Pläne; nur Relevantes laden].
 
 ## Kernregeln
 
-- Vor neuen/wesentlich geänderten Funktionen Abnahmekriterien klären; komplexe/risikoreiche Änderungen technisch planen.
-
-- Auftrag samt notwendigen Anpassungen umsetzen; unabhängige Verbesserungen am Aufgabenort erfassen.
-
-- Vorschläge nur mit Nachweis und Begründung schließen; unklare Konflikte beschlossener Pläne klären.
-
-- Funktionale Änderungen müssen Kernprüfungen und erforderliche Bereichstests bestehen. Prüfung, Umgebung, Codezustand, Ergebnis und Beleg zuordnen; fehlende erforderliche Nachweise samt Grund nennen.
-
-- Betroffene Dokumentation im selben PR aktualisieren; bei Ziel- oder Planänderungen Anforderungen, Roadmap und Aufgabenbezüge abgleichen. Aufgabenstatus nur am Aufgabenort pflegen; relevante Fehlererkenntnisse festhalten.
-
-- Fremde Arbeit und weiterhin relevante Kommentare erhalten; gesamten Diff vor Übergabe auf unbeabsichtigte Änderungen prüfen.
-
-- Technische Schritte, Prüfergebnisse und nächsten Schritt im vorhandenen Plan pflegen; Gesamtstatus ausschließlich am Aufgabenort führen.
-
-- Fehlt dort Zugriff, neue Einträge als nicht übertragen mit Zuständigkeit und nächstem Abgleich festhalten; vor Abschluss übertragen und verlinken oder verbindlich übergeben. Abnahmerelevante Lücken blockieren den Merge; unabhängige Ideen bleiben nachverfolgbar offen.
-
+- Vor neuen/wesentlich geänderten Funktionen Abnahmekriterien klären; komplexe oder risikoreiche Änderungen technisch planen. Auftrag und nötige Anpassungen umsetzen; unabhängige Vorschläge am Aufgabenort erfassen und nur mit Nachweis schließen.
+- Funktionale Änderungen: Kernprüfungen und erforderliche Bereichstests ausführen. Umgebung, Codezustand, Ergebnis und Beleg zuordnen; fehlende Nachweise mit Grund benennen.
+- Betroffene Dokumentation im selben PR pflegen; bei Ziel- oder Planänderungen Anforderungen, Roadmap und Aufgabenbezüge abgleichen. Temporäre Aufgaben und Status bleiben am Aufgabenort oder im technischen Plan, nicht in dieser Datei.
+- Fremde Arbeit und relevante Kommentare erhalten; den gesamten Diff prüfen. Bei Unterbrechung technische Schritte, Prüfergebnisse und nächsten Schritt im vorhandenen Plan festhalten.
+- Fehlt Zugriff auf den Aufgabenort, nötige Übertragungen mit Zielort, Zuständigkeit und nächstem Abgleich festhalten und vor Abschluss übertragen oder verbindlich übergeben. Wesentliche Abnahmelücken blockieren den betroffenen Merge.
 - Implementiert, geprüft, gemergt und deployed unterscheiden. Dokumentation deutsch; Bezeichner und Dateinamen englisch.
 
 ## Projektgrenzen
 
 - Funktionale Änderungen: eigener Branch und PR.
 
-- Merge: erforderliche Prüfungen am aktuellen maßgeblichen PR-Stand nachweisen; lokale Erfolge ersetzen keine erforderliche CI. Pflichtchecks und tatsächlich eingerichtete Merge-Regeln: [genauer Verweis].
+- Merge: erforderliche Prüfungen am maßgeblichen aktuellen PR-Stand nachweisen; lokale Erfolge ersetzen keine erforderliche CI. Pflichtchecks und tatsächlich eingerichtete Merge-Regeln: [genauer Verweis].
 
 - Auto-Merge / Deployment / besondere Migrationsregeln: [tatsächlich geltende Vorgaben].
 
@@ -707,7 +700,7 @@ Aufgaben und aktueller Bearbeitungsstatus: [maßgeblicher Aufgabenort]
 
 3. Aufgabenort, Bereichszuordnung, ergänzenden Suchweg und gegebenenfalls relevantes Betriebsprofil festlegen. Eindeutige bestehende Entscheidungen weiterverwenden; wesentliche offene Entscheidungen mit Optionen, Vor-/Nachteilen und Empfehlung klären.
 
-4. Eine kompakte `AGENTS.md` mit übernommener Standardversion, gültigen Befehlen beziehungsweise genauen Verweisen, Kernregeln und Lesewegen erstellen oder anpassen.
+4. Eine kompakte `AGENTS.md` mit übernommener Standardversion, gültigen Befehlen beziehungsweise genauen Verweisen, unmittelbar geltenden Kernregeln und Lesewegen erstellen oder anpassen. Bereichsanweisungen und Skills nur bei tatsächlichem Bedarf ergänzen und für die verwendeten Agenten auffindbar machen.
 
 5. Setup-, Start- und Testbefehle ermitteln. Prüfnachweise mit Umgebung, Codezustand, Ergebnis und Beleg korrekt dokumentieren. Erforderliche Prüfungen und tatsächlich vorhandene CI-/Merge-Absicherung unterscheiden; lokale Erfolge ersetzen keine erforderliche CI. Fehlende Einrichtung als konkrete Lücke erfassen; nur bei entsprechendem Auftrag umsetzen.
 
@@ -731,7 +724,7 @@ Er übernimmt die einmalige Zuordnung aller benötigten Informationen zu ihren P
 
 ```text
 
-Erstelle beziehungsweise aktualisiere die projektspezifische Dokumentation des Zielrepositories gemäß der bereitgestellten REPOSITORY_STANDARD.md Version 1.5.
+Erstelle beziehungsweise aktualisiere die projektspezifische Dokumentation des Zielrepositories gemäß der bereitgestellten REPOSITORY_STANDARD.md Version 1.6.
 
 Übernimm selbst die einmalige Zuordnung aller benötigten Informationen zu ihren maßgeblichen Pflegeorten. Verwende vorhandene Struktur und bereits getroffene Entscheidungen. Entscheide eindeutig ableitbare und unkritische Zuordnungen selbst; kläre nur wesentliche offene Entscheidungen mit mir. Bei späteren Aktualisierungen überprüfe vorhandene Zuordnungen und ändere nur die tatsächlich betroffenen Teile.
 
@@ -744,6 +737,8 @@ Unterscheide gewünschtes Verhalten, implementierten Zustand und tatsächlich ge
 2. Pflegeorte bestimmen
 
 Stelle README.md und AGENTS.md als Einstieg sicher. Für längerfristige Projekte erstelle REQUIREMENTS.md und ROADMAP.md im Hauptverzeichnis gemäß Abschnitt 3 und verlinke beide aus README und AGENTS. Übernimm bestehende Inhalte verlustfrei, erhalte maßgebliche Detailquellen über Verweise und aktualisiere betroffene Links. Für kleine Experimente, Dateisammlungen oder Hilfsskripte ohne mehrphasige Weiterentwicklung genügen die benannten README-Abschnitte; dokumentiere die Ausnahme in AGENTS. Trenne beschlossenes Zielbild, Phasen und Abhängigkeiten, konkreten Aufgabenstatus und technische Detailplanung. Ordne benötigte Architektur-, Test-, Konfigurations-, Anforderungs-, Fehler- und Entscheidungsinformationen jeweils einem maßgeblichen Pflegeort zu. Verwende passende vorhandene Abschnitte weiter. Weitere Dateien entstehen nur bei konkretem Bedarf gemäß Abschnitt 3, ohne leere Vorratsdateien oder starre Dateigrenze.
+
+Halte einzelne Features, Bugs und laufende PRs aus dauerhaften Agentenanweisungen heraus. Lege eine lokale AGENTS.md nur für echte bereichsspezifische Regeln an. Einen Skill ergänze nur für einen tatsächlich wiederkehrenden spezialisierten Ablauf; prüfe, wie die verwendeten Agenten ihn entdecken. Erzeuge weder leere docs-Bäume noch eine Vorratssammlung an Skills.
 
 Bestimme einen maßgeblichen Aufgabenort für Gesamtstatus, Priorität und Verbesserungsvorschläge. Übernimm einen geeigneten bestehenden Ort. Wähle anhand des tatsächlichen Workflows Issues oder einen Markdown-Backlog; kläre eine wesentliche offene Wahl mit mir. PRs dokumentieren Änderungen und Prüfergebnisse; technische Pläne behalten Umsetzungsschritte, Prüfstand, Blocker und nächsten Schritt, aber keinen zweiten Gesamtstatus. Auch Abnahmekriterien haben genau einen maßgeblichen Ort.
 
@@ -763,7 +758,9 @@ Dokumentiere im maßgeblichen Prüfungsabschnitt die Testgrenzen und gegebenenfa
 
 Prüfe vorhandene GitHub-Issue- und PR-Vorlagen auf Eignung für den gewählten Aufgabenort und PR-Ablauf. Erhalte geeignete Vorlagen und passe Inhalte sowie Lesewege an das Zielprojekt an; erzeuge keinen zweiten Backlog. Ersetze Template-spezifische Prüfkommandos und Checknamen durch tatsächliche Projektprüfungen oder benenne fehlende Prüfungen als offen. Lokale Ergebnisse und CI-Nachweise bleiben getrennt. Verlinke verwendete Vorlagen aus AGENTS.md und verlange ihre passenden Inhalte auch bei API-/CLI-Erstellung. GitHub-Vorlagen sind Arbeitshilfen zu Abschnitten 6, 7, 9 und 11, keine zusätzliche Freigabestufe und kein technischer Merge-Schutz.
 
-Erstelle eine kompakte AGENTS.md anhand von Vorlage 14.1: Standardversion 1.5, Übernahmedatum, Befehle beziehungsweise genaue Verweise, Aufgabenort und Suchweg, unmittelbar geltende Kernregeln, Projektgrenzen und konkrete Lesewege. Eine Versionsnummer ersetzt keine Arbeitsanweisung. Erhalte insbesondere die Pflichten zu erforderlichen Prüfungen, aktueller betroffener Dokumentation, belegtem Schließen von Vorschlägen und brauchbarer Übergabe.
+Bei einer neuen Ableitung ersetze die mitkopierten README.md und AGENTS.md durch eigenständige Projekteinträge; übernimm keine Template-Aufgaben als Produktanforderungen. Wenn die Projektregeln übernommen und alle Links geprüft sind, entferne eindeutig unveränderte und nicht mehr benötigte Template-Hilfen wie REPOSITORY_STANDARD.md, SETUP.md, templates/ und scripts/check_template.py samt zugehörigem Template-Workflow. Bereits angepasste Dateien und vorhandene Projektarbeit erhalten; in bestehenden Projekten keine pauschale Bereinigung.
+
+Erstelle eine kompakte AGENTS.md anhand von Vorlage 14.1: Standardversion 1.6, Übernahmedatum, Befehle beziehungsweise genaue Verweise, Aufgabenort und Suchweg, unmittelbar geltende Kernregeln, Projektgrenzen und konkrete Lesewege. Eine Versionsnummer ersetzt keine Arbeitsanweisung. Erhalte insbesondere die Pflichten zu erforderlichen Prüfungen, aktueller betroffener Dokumentation, belegtem Schließen von Vorschlägen und brauchbarer Übergabe.
 
 Verlange bei jeder neuen Aufgabe oder Sitzung den gezielten Relevanzabgleich nach Abschnitt 4. Übernimm passende Bereichsnamen und vorhandene Labels, Scope-Felder oder eindeutige Abschnittszuordnungen für Aufgaben, eigenständige Pläne und Spezifikationen. Dokumentiere den ergänzenden Suchweg; berücksichtige Schnittstellen, Abhängigkeiten und übergreifende Regeln auch außerhalb passender Labels. Nur passende Einträge und Dokumente vollständig lesen; keine vollständige Backlog-Lektüre oder allgemeine Aufräumrunde pro Bugfix.
 

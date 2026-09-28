@@ -3,8 +3,10 @@
 from pathlib import Path
 import re
 import sys
+from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
+STANDARD_VERSION = "1.6"
 TEMPLATES = (
     "AGENTS.md.template",
     "feature.md.template",
@@ -18,6 +20,28 @@ TEMPLATES = (
     "REQUIREMENTS.md.template",
     "ROADMAP.md.template",
 )
+
+
+def anchors(path: Path) -> set[str]:
+    """Ermittelt GitHub-ähnliche Anker aus Markdown-Überschriften."""
+    result = set()
+    counts = {}
+    fenced = False
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("```"):
+            fenced = not fenced
+            continue
+        if fenced:
+            continue
+        match = re.match(r"^#{1,6} +(.+?)\s*#*\s*$", line)
+        if not match:
+            continue
+        title = re.sub(r"<[^>]+>", "", match.group(1)).replace("`", "")
+        slug = re.sub(r"[^\w -]", "", title.casefold()).replace(" ", "-")
+        number = counts.get(slug, 0)
+        counts[slug] = number + 1
+        result.add(f"{slug}-{number}" if number else slug)
+    return result
 
 
 def main() -> int:
@@ -40,8 +64,16 @@ def main() -> int:
         print("\n".join(errors))
         return 1
     standard = (ROOT / "REPOSITORY_STANDARD.md").read_text(encoding="utf-8")
-    if not re.search(r"^Version: 1\.5\b", standard, re.M):
+    if not re.search(rf"^Version: {re.escape(STANDARD_VERSION)}\b", standard, re.M):
         errors.append("Unerwartete Standardversion; bewusste Anpassung erforderlich.")
+    for relative, marker in {
+        "README.md": f"Repo-Standards {STANDARD_VERSION}",
+        "AGENTS.md": f"Basis: REPOSITORY_STANDARD.md {STANDARD_VERSION}",
+        "SETUP.md": f"Standardversion {STANDARD_VERSION}",
+        "templates/AGENTS.md.template": f"Basis: REPOSITORY_STANDARD.md {STANDARD_VERSION}",
+    }.items():
+        if marker not in (ROOT / relative).read_text(encoding="utf-8"):
+            errors.append(f"Veralteter Standardverweis in {relative}")
     sections = re.findall(r"^## (\d+)\. ", standard, re.M)
     if sections != [str(number) for number in range(1, 18)]:
         errors.append("Standardabschnitte 1–17 nicht vollständig oder falsch geordnet.")
@@ -66,16 +98,19 @@ def main() -> int:
             continue
         prose = re.sub(r"```.*?```", "", text, flags=re.S)
         for target in re.findall(r"\[[^\]]+\]\(([^\s)]+)\)", prose):
-            if "://" in target or target.startswith("#"):
+            if "://" in target:
                 continue
-            target_path = target.split("#", 1)[0]
-            if not (path.parent / target_path).exists():
+            target_path, _, fragment = unquote(target).partition("#")
+            destination = path.parent / target_path if target_path else path
+            if not destination.exists():
                 errors.append(f"Fehlendes Linkziel in {path.relative_to(ROOT)}: {target}")
+            elif fragment and destination.is_file() and fragment not in anchors(destination):
+                errors.append(f"Fehlender Anker in {path.relative_to(ROOT)}: {target}")
     if errors:
         print("Template-Prüfung: FEHLER")
         print("\n".join(errors))
         return 1
-    print("Template-Prüfung: OK (Standard 1.5, elf synchronisierte Muster, lokale Dateiverweise)")
+    print(f"Template-Prüfung: OK (Standard {STANDARD_VERSION}, elf synchronisierte Muster, lokale Links)")
     return 0
 
 

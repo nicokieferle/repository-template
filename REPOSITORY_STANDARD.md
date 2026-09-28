@@ -415,9 +415,10 @@ Basis: REPOSITORY_STANDARD.md 1.6 · Übernommen: [Datum]
 ## Kernregeln
 
 - Vor neuen/wesentlich geänderten Funktionen Abnahmekriterien klären; komplexe oder risikoreiche Änderungen technisch planen. Auftrag und nötige Anpassungen umsetzen; unabhängige Vorschläge am Aufgabenort erfassen. Vorschläge sind keine Ausführungsaufträge; Einträge nur mit Nachweis schließen.
+- Unklare Konflikte zwischen beschlossenen Plänen klären, bevor widersprüchliche Ziele umgesetzt werden.
 - Funktionale Änderungen: Kernprüfungen und erforderliche Bereichstests ausführen. Umgebung, Codezustand, Ergebnis und Beleg zuordnen; fehlende Nachweise mit Grund benennen.
 - Betroffene Dokumentation im selben PR pflegen; bei Ziel- oder Planänderungen Anforderungen, Roadmap und Aufgabenbezüge abgleichen. Temporäre Aufgaben und Status bleiben am Aufgabenort oder im technischen Plan, nicht in dieser Datei.
-- Fremde Arbeit und relevante Kommentare erhalten; den gesamten Diff prüfen. Bei Unterbrechung technische Schritte, Prüfergebnisse und nächsten Schritt im vorhandenen Plan festhalten.
+- Fremde Arbeit und relevante Kommentare erhalten; den gesamten Diff vor Übergabe auf unbeabsichtigte Änderungen prüfen. Bei Unterbrechung technische Schritte, Prüfergebnisse und nächsten Schritt im vorhandenen Plan festhalten.
 - Fehlt Zugriff auf den Aufgabenort, nötige Übertragungen mit Zielort, Zuständigkeit und nächstem Abgleich festhalten und vor Abschluss übertragen oder verbindlich übergeben. Wesentliche Abnahmelücken blockieren den betroffenen Merge.
 - Implementiert, geprüft, gemergt und deployed unterscheiden. Dokumentation deutsch; Bezeichner und Dateinamen englisch.
 

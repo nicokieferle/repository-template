@@ -16,11 +16,11 @@ Diese Datei gilt für das zentrale Template. In einem daraus erzeugten, noch nic
 ## Kernregeln
 
 - Neue Aufgabe: Branch, Diff, unversionierte Dateien und relevante Issues prüfen; fremde Arbeit erhalten. Vor wesentlichen Änderungen überprüfbare Abnahmekriterien festhalten; komplexe oder riskante Arbeit technisch planen.
-- Auftrag und nötige Anpassungen umsetzen. Unabhängige Vorschläge am Aufgabenort erfassen; Vorschläge sind keine Ausführungsaufträge. Einträge nur mit Nachweis und Begründung schließen. Keine zweite Statusliste anlegen.
+- Auftrag und nötige Anpassungen umsetzen. Unabhängige Vorschläge am Aufgabenort erfassen; Vorschläge sind keine Ausführungsaufträge. Einträge nur mit Nachweis und Begründung schließen; unklare Konflikte zwischen beschlossenen Plänen klären. Keine zweite Statusliste anlegen.
 - Standard, Muster und Setup konsistent halten. Die elf Muster in Abschnitt 14 und `templates/` nicht unabhängig ändern; keine Projektbesonderheiten als globale Vorgabe übernehmen.
 - Betroffene Dokumentation im selben PR pflegen. Passende Prüfungen mit Umgebung, Codezustand, Ergebnis und Beleg zuordnen; fehlende Nachweise benennen. Lokaler Erfolg ist kein CI-Nachweis.
 - Bei Unterbrechung den technischen Stand und nächsten Schritt im vorhandenen Plan oder Auftrag festhalten. Fehlenden Issue-Zugriff und nötige Übertragungen mit Zielort, Zuständigkeit und nächstem Abgleich sichtbar machen; wesentliche Abnahmelücken blockieren den betroffenen Merge.
-- Den gesamten Diff prüfen. Dokumentation deutsch; Datei-/Ordnernamen und Codebezeichner englisch. Keine Secrets oder vollständigen privaten Nutzdaten aufnehmen.
+- Den gesamten Diff vor Übergabe auf unbeabsichtigte Änderungen prüfen. Dokumentation deutsch; Datei-/Ordnernamen und Codebezeichner englisch. Keine Secrets oder vollständigen privaten Nutzdaten aufnehmen.
 
 ## Git und Grenzen
 

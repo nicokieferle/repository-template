@@ -1,6 +1,6 @@
 # Repository Template
 
-Schlanker Ausgangspunkt für neue Projekte und zentrale Pflege des **Repo-Standards 1.5** (27. September 2026).
+Schlanker Ausgangspunkt für neue Projekte und zentrale Pflege des **Repo-Standards 1.6** (28. September 2026).
 
 Dieses Repository ist ein modularer Dokumentations- und Arbeitsrahmen für KI-gestützte Entwicklung. Es enthält Dokumentation und Vorlagen, keinen Anwendungscode. Es legt keine Sprache, Datenbank, Containertechnik oder CI-Plattform für Zielprojekte fest.
 
@@ -54,6 +54,8 @@ Diese Dateien pflegen das Template selbst. Sie sind kein Pflichtbestand für jed
 
 Zusätzliche Dokumente entstehen bei größerem Umfang, eigenständiger Pflege oder regelmäßig gezieltem Zugriff. Es gibt keinen vorab angelegten `docs/`-Baum mit leeren Dateien. Auch `.env.example` entsteht nur, wenn sie zur tatsächlichen Konfigurationsweise passt. Die Muster unter `templates/` dienen der Einrichtung und sind keine aktiven Projektdokumente.
 
+Bereichsspezifische `AGENTS.md`-Dateien sind nur bei tatsächlichen zusätzlichen Regeln sinnvoll. Ein thematisch begrenzter Skill (`SKILL.md`) kann einen wiederkehrenden Spezialablauf abbilden; das Basistemplate liefert bewusst keinen Beispielsatz von Skills. Eine mögliche Ablage ist `.agents/skills/<name>/SKILL.md`, sofern die verwendeten Agenten sie entdecken oder darauf verwiesen werden. [Standardabschnitt 3](REPOSITORY_STANDARD.md#3-erforderliche-informationen-und-ihre-pflegeorte) beschreibt die Grenze zu Projektdokumentation und automatisierten Prüfungen.
+
 Die Roadmap zeigt, was insgesamt vorgesehen ist und wie die Schritte zusammenhängen. Den aktuellen Bearbeitungsstand liefern die verlinkten Aufgaben; Änderungen und Prüfungen sind über ihre PRs nachvollziehbar. So wird keine zweite Statusliste in der Roadmap gepflegt.
 
 ## Ablauf bei einer Aufgabe
@@ -83,17 +85,13 @@ Voraussetzung: Python 3.11 oder neuer; keine zusätzlichen Pakete. Aus dem Repos
 python3 scripts/check_template.py
 ```
 
-Erwartung: Exit 0 mit `Template-Prüfung: OK`. Geprüft werden Vorlagenabgleich, benötigte Dateien, Standardversion und elementare Formatmerkmale. Zusätzlich geänderte Verweise und den gesamten Diff fachlich prüfen. Der Check belegt weder Anwendungstests noch die inhaltliche Vollständigkeit einer späteren Projekteinstellung.
+Erwartung: Exit 0 mit `Template-Prüfung: OK`. Geprüft werden Vorlagenabgleich, benötigte Dateien, aktive Standardverweise, lokale Linkziele und Überschriftenanker sowie elementare Formatmerkmale. Externe Links und den gesamten Diff zusätzlich fachlich prüfen. Der Check belegt weder Anwendungstests noch die inhaltliche Vollständigkeit einer späteren Projekteinstellung.
 
 Der Workflow [.github/workflows/template-check.yml](.github/workflows/template-check.yml) führt denselben Befehl bei Pull Requests, Pushes auf `main` und manuellem Start aus. Der Check heißt **Template check** und verwendet Python 3.11 auf Ubuntu 24.04. Die verwendeten Actions sind auf konkrete Commit-SHAs festgelegt; der Workflow erhält nur Lesezugriff auf Repository-Inhalte.
 
 Für Änderungen an diesem Template muss der Check am maßgeblichen aktuellen PR-Stand bestehen. Den konkreten Lauf und geprüften Commit als Nachweis verlinken; ein lokaler Erfolg ist kein CI-Nachweis. Läufe sind unter [GitHub Actions](https://github.com/Hengsto/repository-template/actions) sichtbar.
 
-**Eine technische Merge-Sperre durch verpflichtende Statuschecks ist weiterhin eine gesonderte Einrichtungslücke.** Bei der Prüfung am 27. September 2026 war `main` ungeschützt. Das Repository ist privat; der Ruleset-Abruf wurde mit HTTP 403 und dem Hinweis auf GitHub Pro oder ein öffentliches Repository abgewiesen. Voraussetzungen, Aufgabe und weiterer Abgleich stehen in [Issue #5](https://github.com/Hengsto/repository-template/issues/5). Sichtbarkeit und Tarif werden nicht durch die Dokumentationseinrichtung geändert.
-
-Nach Freischaltung ist mit Administrationszugriff ein aktiver Schutz für `main` einzurichten und anschließend auszulesen: PR-Pflicht, erforderlicher Check **Template check** für einen aktuellen Stand, keine Umgehung durch direkte Pushes oder Bypass-Regeln sowie gesperrte Force-Pushes und Branch-Löschung. Eine zusätzliche manuelle Review-Freigabe wird damit nicht vorgeschrieben. Der Checkname stammt aus dem Jobnamen; `template-check.yml` ist der Dateiname des Workflows. Einstellungen gelten erst nach belegter Einrichtung, nicht durch diesen Text.
-
-Der Workflow allein erzwingt keine Merge-Sperre. Auch ein erfolgreicher Check belegt nur die geprüften Struktur- und Konsistenzmerkmale, keine vollständige inhaltliche Korrektheit. Es gibt keinen Build, Anwendungsstart oder Deploymentvorgang für dieses Dokumentationstemplate.
+**Der Workflow allein erzwingt keinen Merge-Schutz.** Der belegte Stand und die Voraussetzungen für PR-Pflicht und den erforderlichen Check **Template check** stehen in [Issue #5](https://github.com/Hengsto/repository-template/issues/5). Ein technischer Schutz gilt erst nach tatsächlicher Einrichtung und Überprüfung. Auch ein erfolgreicher Check belegt nur Struktur- und Konsistenzmerkmale, keine vollständige inhaltliche Korrektheit. Es gibt keinen Build, Anwendungsstart oder Deploymentvorgang für dieses Dokumentationstemplate.
 
 In abgeleiteten Projekten ist dieser Check keine Anwendungsprüfung. Wird das Template-Prüfskript bei der Einrichtung entfernt, muss auch der zugehörige unveränderte Template-Workflow gemäß [SETUP.md](SETUP.md) entfernt werden. Bereits angepasste Projekt-Workflows bleiben erhalten; ihr weiterer Umgang ist ausdrücklich zu klären.
 
@@ -107,4 +105,4 @@ Eine Lizenz ist bewusst nicht vorgegeben. Vor öffentlicher Weitergabe oder exte
 
 ## Herkunft
 
-Grundlage ist die vom Betreiber bereitgestellte Fassung 1.3. Dateiname vereinheitlicht auf `REPOSITORY_STANDARD.md`; maskierte Markdown-Zeichen, fett markierte Überschriften und überzählige Leerzeilen wurden für lesbares Markdown normalisiert. Version 1.4 ergänzt die beschlossene Regel für projektweite Anforderungen und Roadmaps; die ursprüngliche Übernahme der Fassung 1.3 war rein redaktionell. Version 1.5 präzisiert Testgrenzen sowie Build- und Artefaktnachweise. Projektspezifische Auto-Coding-Entscheidungen sind nicht Bestandteil dieses allgemeinen Templates.
+Grundlage ist die vom Betreiber bereitgestellte Fassung 1.3. Version 1.4 ergänzt projektweite Anforderungen und Roadmaps, Version 1.5 präzisiert Testgrenzen und Artefaktnachweise. Version 1.6 konkretisiert die knappe Agent-Einstiegsebene, bedarfsabhängige Bereichsregeln und Skills sowie maschinell prüfbare Vorgaben. Die Änderungshistorie des Standards steht in [REPOSITORY_STANDARD.md](REPOSITORY_STANDARD.md); projektspezifische Auto-Coding-Entscheidungen sind nicht Teil dieses allgemeinen Templates.

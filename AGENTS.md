@@ -1,33 +1,26 @@
 # Arbeitsregeln für das Repository Template
 
-Basis: REPOSITORY_STANDARD.md 1.5 · Übernommen: 27. September 2026
+Basis: REPOSITORY_STANDARD.md 1.6 · Stand: 28. September 2026
 
 ## Zuerst den Repository-Typ bestimmen
 
 Diese Datei gilt für das zentrale Template. In einem daraus erzeugten, noch nicht eingerichteten Projekt ist sie eine vorläufige Einstiegsanweisung: Bei beauftragter Einrichtung [SETUP.md](SETUP.md) anwenden und anschließend durch projektspezifische Regeln ersetzen. Das bloße Lesen startet keinen Einrichtungsauftrag.
 
-## Befehle und Lesewege
+## Lesewege
 
-- Zielbild: [REQUIREMENTS.md](REQUIREMENTS.md); projektweite Planung: [ROADMAP.md](ROADMAP.md). Bei Ziel- oder Planänderungen beide mit den Aufgabenbezügen abgleichen; Aufgabenstatus bleibt in GitHub Issues.
-
-- Lokale Prüfung, Voraussetzungen und Grenzen: [README.md, Abschnitt Prüfungen](README.md#prüfungen).
-- GitHub-Einträge: [Fehlerbericht](.github/ISSUE_TEMPLATE/bug_report.md), [Verbesserung/Funktion](.github/ISSUE_TEMPLATE/feature_request.md) und [PR-Vorlage](.github/pull_request_template.md) verwenden. Bei Erstellung über API oder CLI die passenden Inhalte ausdrücklich übernehmen; Vorlagen werden dabei nicht verlässlich automatisch angewendet. Bestehende gleichwertige Inhalte erhalten, offene Fragen und ausstehende Nachweise kenntlich machen.
-- Standardänderung: betroffene Abschnitte in [REPOSITORY_STANDARD.md](REPOSITORY_STANDARD.md), zugehörige Muster unter templates/ und SETUP.md lesen. Gesamten Standard nur für Einrichtung, umfassende Aktualisierung oder unklare übergreifende Auswirkungen laden.
-- Vorlagenänderung: [templates/README.md](templates/README.md) und maßgeblichen Standardabschnitt lesen.
-- Neue Aufgabe/Sitzung: Branch, Diff und vorhandene Arbeit prüfen. Aufgabenort und Suchweg stehen in [README.md](README.md#architektur-und-pflege). Betroffene Pfade, Begriffe, Schnittstellen und übergreifende Einschränkungen berücksichtigen.
+- Zielbild: [REQUIREMENTS.md](REQUIREMENTS.md); Phasen: [ROADMAP.md](ROADMAP.md); Status und Vorschläge: [GitHub Issues](https://github.com/Hengsto/repository-template/issues). Betroffene Pfade, Standardabschnitte und Schnittstellen gezielt suchen.
+- Prüfung und tatsächliche CI-Grenzen: [README.md#prüfungen](README.md#prüfungen). Lokal: `python3 scripts/check_template.py` (Python 3.11+).
+- Bei Standardänderungen die betroffenen Abschnitte in [REPOSITORY_STANDARD.md](REPOSITORY_STANDARD.md), die synchronisierten Muster unter [templates/](templates/README.md) und [SETUP.md](SETUP.md) abgleichen. Den ganzen Standard für Einrichtung, umfassende Änderungen oder unklare Auswirkungen lesen.
+- Für GitHub-Einträge [Fehlerbericht](.github/ISSUE_TEMPLATE/bug_report.md), [Verbesserung/Funktion](.github/ISSUE_TEMPLATE/feature_request.md) oder [PR-Vorlage](.github/pull_request_template.md) verwenden; bei API/CLI-Erstellung passende Inhalte ausdrücklich übernehmen. Bestehende gleichwertige Inhalte erhalten, offene Fragen und ausstehende Nachweise kenntlich machen.
 
 ## Kernregeln
 
-- Auftrag und erforderliche Anpassungen umsetzen; unabhängige Verbesserungen am maßgeblichen Aufgabenort erfassen. Vorschläge sind keine Ausführungsaufträge.
-- Vor wesentlichen Änderungen überprüfbare Abnahmekriterien festhalten; komplexe oder risikoreiche Arbeit technisch planen. Keine leeren Vorratsdokumente und keine zweite Statusführung.
-- Vorhandene fremde Arbeit, brauchbare Struktur und weiterhin relevante Kommentare erhalten. Gesamten Diff auf unbeabsichtigte Änderungen prüfen.
-- Standard, betroffene Muster und Einrichtungsanweisung konsistent halten. Muster 14.1–14.11 nicht unabhängig vom Standard verändern. Projektbesonderheiten nicht als universelle Vorgabe einschleusen.
-- Passende Prüfungen ausführen; Befehl, Umgebung, geprüften Codezustand inklusive uncommitteter Änderungen, Ergebnis und Beleg zuordnen. Fehlende Nachweise benennen. Lokaler Erfolg ist kein CI-Erfolg.
-- Betroffene Dokumentation im selben PR aktualisieren. Wiederverwendbare bestätigte Fehlererkenntnisse am passenden vorhandenen Ort festhalten.
-- Bei Unterbrechung technischen Fortschritt und nächsten Schritt im vorhandenen Plan oder Auftrag dokumentieren; keinen zweiten Gesamtstatus führen.
-- Bei fehlendem Aufgabenort-Zugriff die Lücke nennen. Ausstehende Übertragungen mit Zielort, Zuständigkeit und nächstem Abgleich im vorhandenen Übergabestand festhalten. Wesentliche Abnahmelücken blockieren den Merge; unabhängige Ideen nicht.
-- Einträge nur mit Nachweis und begründeter Entscheidung schließen. Konflikte zwischen beschlossenen Plänen klären.
-- Dokumentation deutsch; Datei-/Ordnernamen und Codebezeichner englisch. Keine echten Secrets oder vollständigen privaten Nutzdaten aufnehmen.
+- Neue Aufgabe: Branch, Diff, unversionierte Dateien und relevante Issues prüfen; fremde Arbeit erhalten. Vor wesentlichen Änderungen überprüfbare Abnahmekriterien festhalten; komplexe oder riskante Arbeit technisch planen.
+- Auftrag und nötige Anpassungen umsetzen. Unabhängige Vorschläge am Aufgabenort erfassen; Vorschläge sind keine Ausführungsaufträge. Einträge nur mit Nachweis und Begründung schließen; unklare Konflikte zwischen beschlossenen Plänen klären. Keine zweite Statusliste anlegen.
+- Standard, Muster und Setup konsistent halten. Die elf Muster in Abschnitt 14 und `templates/` nicht unabhängig ändern; keine Projektbesonderheiten als globale Vorgabe übernehmen.
+- Betroffene Dokumentation im selben PR pflegen. Passende Prüfungen mit Umgebung, Codezustand, Ergebnis und Beleg zuordnen; fehlende Nachweise benennen. Lokaler Erfolg ist kein CI-Nachweis.
+- Bei Unterbrechung den technischen Stand und nächsten Schritt im vorhandenen Plan oder Auftrag festhalten. Fehlenden Issue-Zugriff und nötige Übertragungen mit Zielort, Zuständigkeit und nächstem Abgleich sichtbar machen; wesentliche Abnahmelücken blockieren den betroffenen Merge.
+- Den gesamten Diff vor Übergabe auf unbeabsichtigte Änderungen prüfen. Dokumentation deutsch; Datei-/Ordnernamen und Codebezeichner englisch. Keine Secrets oder vollständigen privaten Nutzdaten aufnehmen.
 
 ## Git und Grenzen
 

@@ -8,7 +8,7 @@ Diese Datei gilt für das zentrale Template. In einem daraus erzeugten, noch nic
 
 ## Lesewege
 
-- Zielbild: [REQUIREMENTS.md](REQUIREMENTS.md); Phasen: [ROADMAP.md](ROADMAP.md); Status und Vorschläge: [GitHub Issues](https://github.com/Hengsto/repository-template/issues). Betroffene Pfade, Standardabschnitte und Schnittstellen gezielt suchen.
+- Zielbild: [REQUIREMENTS.md](REQUIREMENTS.md); Phasen: [ROADMAP.md](ROADMAP.md); Status und Vorschläge: [GitHub Issues](https://github.com/nicokieferle/repository-template/issues). Betroffene Pfade, Standardabschnitte und Schnittstellen gezielt suchen.
 - Prüfung und tatsächliche CI-Grenzen: [README.md#prüfungen](README.md#prüfungen). Lokal: `python3 scripts/check_template.py` (Python 3.11+).
 - Bei Standardänderungen die betroffenen Abschnitte in [REPOSITORY_STANDARD.md](REPOSITORY_STANDARD.md), die synchronisierten Muster unter [templates/](templates/README.md) und [SETUP.md](SETUP.md) abgleichen. Den ganzen Standard für Einrichtung, umfassende Änderungen oder unklare Auswirkungen lesen.
 - Für GitHub-Einträge [Fehlerbericht](.github/ISSUE_TEMPLATE/bug_report.md), [Verbesserung/Funktion](.github/ISSUE_TEMPLATE/feature_request.md) oder [PR-Vorlage](.github/pull_request_template.md) verwenden; bei API/CLI-Erstellung passende Inhalte ausdrücklich übernehmen. Bestehende gleichwertige Inhalte erhalten, offene Fragen und ausstehende Nachweise kenntlich machen.

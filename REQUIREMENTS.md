@@ -26,4 +26,4 @@ Die extrahierten Muster stimmen mit dem Standard überein; verwendete lokale Dat
 
 ## Umsetzung und Nachweise
 
-Die [Roadmap](ROADMAP.md) ordnet die Weiterentwicklung. Konkrete Aufgaben und deren Status stehen in [GitHub Issues](https://github.com/Hengsto/repository-template/issues); Änderungen und Prüfnachweise in den zugehörigen PRs. Anforderungen allein belegen keine abgeschlossene Implementierung.
+Die [Roadmap](ROADMAP.md) ordnet die Weiterentwicklung. Konkrete Aufgaben und deren Status stehen in [GitHub Issues](https://github.com/nicokieferle/repository-template/issues); Änderungen und Prüfnachweise in den zugehörigen PRs. Anforderungen allein belegen keine abgeschlossene Implementierung.
